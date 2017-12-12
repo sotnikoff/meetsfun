@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :city_id %>
-    <%= form.text_field :city_id, id: :meeting_city_id %>
+    <%= form.collection_select :city_id , City.order(:title),:id,:title, include_blank: false %>
   </div>
 
   <div class="field">
@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :interest_id %>
-    <%= form.text_field :interest_id, id: :meeting_interest_id %>
+    <%= form.collection_select :interest_id , Interest.order(:title),:id,:title, include_blank: false %>
   </div>
 
   <div class="field">
