@@ -15,6 +15,9 @@ class MeetingsController < ApplicationController
   # GET /meetings/new
   def new
     @meeting = Meeting.new
+    if user_signed_in?
+      @meeting.user = current_user
+    end
   end
 
   # GET /meetings/1/edit
@@ -25,6 +28,9 @@ class MeetingsController < ApplicationController
   # POST /meetings.json
   def create
     @meeting = Meeting.new(meeting_params)
+    if user_signed_in?
+      @meeting.user = current_user
+    end
 
     respond_to do |format|
       if @meeting.save

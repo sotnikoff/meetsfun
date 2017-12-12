@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :meetings
+
 
   scope '/admin' do
+    resources :meetings
     resources :interests
     resources :cities
   end

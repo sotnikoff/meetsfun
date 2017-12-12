@@ -25,3 +25,4 @@
 .byebug_history
 /.idea
 /config/puma.rb
+/shared
