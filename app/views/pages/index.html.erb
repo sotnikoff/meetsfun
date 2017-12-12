@@ -1,9 +1,9 @@
 <h1>Hello world</h1>
 
 
-
 <% if user_signed_in? %>
   <p>Привет, <%= current_user.name %></p>
+  <p><%= link_to 'Мой профиль', profile_path %></p>
   <p><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></p>
 <% else %>
 

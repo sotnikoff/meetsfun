@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   get 'admin', to: 'pages#admin'
+  get 'profile', to: 'pages#profile'
   root 'pages#index'
 
   devise_for :users

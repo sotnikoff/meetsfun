@@ -1,0 +1,7 @@
+<h1>Мой профиль</h1>
+<p><%= @user.name %></p>
+<p><%= @user.email %></p>
+<p><%= @user.city.title %></p>
+<p>Зарегистрирован  <%= @user.created_at %></p>
+<br>
+<p>Последний вход в систему <%= @user.last_sign_in_at %> с адреса <%= @user.last_sign_in_ip %></p>
