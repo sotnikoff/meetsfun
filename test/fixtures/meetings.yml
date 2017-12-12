@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  city: one
+  user: one
+  interest: one
+  date_time_start: 2017-12-12 10:25:12
+  date_time_finish: 2017-12-12 10:25:12
+  address: MyString
+
+two:
+  title: MyString
+  description: MyText
+  city: two
+  user: two
+  interest: two
+  date_time_start: 2017-12-12 10:25:12
+  date_time_finish: 2017-12-12 10:25:12
+  address: MyString
