@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20171212072512) do
     t.datetime "date_time_start"
     t.datetime "date_time_finish"
     t.string "address"
+    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_meetings_on_city_id"
@@ -58,6 +59,7 @@ ActiveRecord::Schema.define(version: 20171212072512) do
     t.integer "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
     t.index ["city_id"], name: "index_users_on_city_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

@@ -9,6 +9,7 @@ class CreateMeetings < ActiveRecord::Migration[5.1]
       t.datetime :date_time_start
       t.datetime :date_time_finish
       t.string :address
+      t.string :image
 
       t.timestamps
     end
