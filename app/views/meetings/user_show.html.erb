@@ -3,7 +3,7 @@
 
 <p><%= @meeting.description %></p>
 
-<%= image_tag @meeting.image_url(:large) %>
+<%= image_tag @meeting.image_url(:large) unless @meeting.image.blank? %>
 
 <p>Автор встречи: <b><%= @meeting.user.name %></b></p>
 
