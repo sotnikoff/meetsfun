@@ -3,8 +3,15 @@
 
 <% if user_signed_in? %>
   <p>Привет, <%= current_user.name %></p>
+  <p>Привет твоему городу <%= @user_city.title %>!!</p>
   <p><%= link_to 'Мой профиль', profile_path %></p>
   <p><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></p>
+  <h3>Встречи в твоем городе:</h3>
+  <ul>
+    <% @meets.each do |meeting| %>
+      <li><%= link_to meeting.title, user_meeting_path(meeting) %></li>
+    <% end %>
+  </ul>
 <% else %>
 
   <p><%= link_to 'Войти', new_user_session_path %></p>
@@ -14,9 +21,3 @@
 
 <p><%= link_to 'Встречи', meetings_path %></p>
 <p><%= link_to 'Админ-панель', admin_path %></p>
-
-<ul>
-  <% @cities.each do |city| %>
-    <li><%= city.title %></li>
-  <% end %>
-</ul>

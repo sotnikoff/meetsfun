@@ -1,5 +1,5 @@
 class MeetingsController < ApplicationController
-  before_action :set_meeting, only: [:show, :edit, :update, :destroy]
+  before_action :set_meeting, only: [:show, :user_show, :edit, :user_edit, :update, :destroy]
 
   # GET /meetings
   # GET /meetings.json
@@ -10,6 +10,12 @@ class MeetingsController < ApplicationController
   # GET /meetings/1
   # GET /meetings/1.json
   def show
+  end
+
+  def user_show
+  end
+
+  def user_edit
   end
 
   # GET /meetings/new

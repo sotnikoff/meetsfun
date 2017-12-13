@@ -1,0 +1,15 @@
+<h1><%= @meeting.title %></h1>
+
+
+<p><%= @meeting.description %></p>
+
+<p>Автор встречи: <b><%= @meeting.user.name %></b></p>
+
+<p>Встреча начнется <b><%= @meeting.date_time_start %></b></p>
+<p>Встреча завершится <b><%= @meeting.date_time_finish %></b></p>
+
+<p>Встреча пройдет по адресу: <b><%= @meeting.address %></b></p>
+
+<% if current_user == @meeting.user %>
+  <%= link_to 'Редактировать', edit_user_meeting_path(@meeting) %>
+<% end %>
