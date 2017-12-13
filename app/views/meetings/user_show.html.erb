@@ -3,6 +3,8 @@
 
 <p><%= @meeting.description %></p>
 
+<%= image_tag @meeting.image_url(:large) %>
+
 <p>Автор встречи: <b><%= @meeting.user.name %></b></p>
 
 <p>Встреча начнется <b><%= @meeting.date_time_start %></b></p>
