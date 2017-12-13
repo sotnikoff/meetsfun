@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   end
 
   get 'admin', to: 'pages#admin'
-  get 'profile', to: 'profiles#show'
+  get 'profile', to: 'profiles#show', as: 'profile'
+  get 'profile/edit', to: 'profiles#edit', as: 'edit_profile'
+
+  patch 'profile', to: 'profiles#update', as: 'update_profile'
+
+
   root 'pages#index'
 
   devise_for :users
