@@ -1,0 +1,6 @@
+<h1>Встречи</h1>
+<ul>
+  <% @meetings.each do |meeting| %>
+    <li><%= link_to meeting.title, user_meeting_path(meeting) %></li>
+  <% end %>
+</ul>

@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get '/meetings/:id', to: 'meetings#user_show', as: 'user_meeting'
   get '/meetings/:id/edit', to: 'meetings#user_edit', as: 'edit_user_meeting'
+  get '/meetings', to: 'meetings#user_index', as: 'user_meetings'
+
   scope '/admin' do
     resources :meetings
     resources :interests

@@ -1,10 +1,13 @@
 class MeetingsController < ApplicationController
   before_action :set_meeting, only: [:show, :user_show, :edit, :user_edit, :update, :destroy]
+  before_action :set_meetings, only: [:index, :user_index]
 
   # GET /meetings
   # GET /meetings.json
   def index
-    @meetings = Meeting.all
+  end
+
+  def user_index
   end
 
   # GET /meetings/1
@@ -77,6 +80,10 @@ class MeetingsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_meeting
       @meeting = Meeting.find(params[:id])
+    end
+
+    def set_meetings
+      @meetings = Meeting.all
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
