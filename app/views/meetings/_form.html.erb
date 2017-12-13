@@ -1,4 +1,4 @@
-<%= form_with(model: meeting, local: true) do |form| %>
+<%= form_with(model: meeting, local: true, html: {multipart: true}) do |form| %>
   <% if meeting.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
@@ -49,6 +49,10 @@
   <div class="field">
     <%= form.label :address %>
     <%= form.text_field :address, id: :meeting_address %>
+  </div>
+
+  <div class="field">
+    <%= form.file_field :image %>
   </div>
 
   <div class="actions">

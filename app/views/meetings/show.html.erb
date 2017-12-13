@@ -12,17 +12,17 @@
 
 <p>
   <strong>City:</strong>
-  <%= @meeting.city %>
+  <%= @meeting.city.title if @meeting.city %>
 </p>
 
 <p>
   <strong>User:</strong>
-  <%= @meeting.user %>
+  <%= @meeting.user.name if @meeting.user %>
 </p>
 
 <p>
   <strong>Interest:</strong>
-  <%= @meeting.interest %>
+  <%= @meeting.interest.title if @meeting.interest %>
 </p>
 
 <p>

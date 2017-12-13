@@ -2,7 +2,7 @@
 
 <h1>Meetings</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Title</th>
@@ -22,9 +22,9 @@
       <tr>
         <td><%= meeting.title %></td>
         <td><%= meeting.description %></td>
-        <td><%= meeting.city %></td>
-        <td><%= meeting.user %></td>
-        <td><%= meeting.interest %></td>
+        <td><%= meeting.city.title if meeting.city %></td>
+        <td><%= meeting.user.name if meeting.user %></td>
+        <td><%= meeting.interest.title if meeting.interest %></td>
         <td><%= meeting.date_time_start %></td>
         <td><%= meeting.date_time_finish %></td>
         <td><%= meeting.address %></td>

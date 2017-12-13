@@ -26,3 +26,4 @@
 /.idea
 /config/puma.rb
 /shared
+/public/uploads/*

@@ -4,4 +4,5 @@ class Meeting < ApplicationRecord
   belongs_to :interest
 
   validates :title, :presence => true
+  mount_uploader :image, ImageUploader
 end
