@@ -62,7 +62,7 @@ body{
   background: asset-data-url("how-it-works2") no-repeat;
   background-size: cover;
   padding: 20px 0;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 .how-it-works-step{
   padding: 0;
@@ -74,6 +74,17 @@ body{
   height: 135px;
   border-radius: 50%;
   border: #CD998B 2px solid;
+}
+.main-interests-group{
+  padding: 0;
+  margin-bottom: 40px;
+}
+.main-interests-item{
+  padding: 0;
+  width: 250px;
+  height: 250px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 h1{
   font-weight: 300;
@@ -89,4 +100,15 @@ h3{
   color: #CD998B;
   font-size: 16px;
   font-weight: 700;
+}
+footer{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  min-height: 200px;
+  background: #000;
+  color: #999999;
+  font-weight: 400;
+  font-size: 12px;
+  text-align: center;
 }
