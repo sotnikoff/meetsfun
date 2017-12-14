@@ -7,7 +7,7 @@ body{
 #logo{
   font-size: 32px;
   font-weight: 800;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 #main-header{
   height: 320px;
@@ -33,4 +33,60 @@ body{
   opacity: 0.5;
   font-weight: 300;
   font-size: 14px;
+}
+#main-header-menu{
+  background-color: rgba(77,58,52,0.95);
+  margin-bottom: 40px;
+}
+#main-city-meets{
+  padding: 0;
+  margin-bottom: 30px;
+}
+.meeting-header{
+
+}
+.meetings-image{
+  margin-bottom: 10px;
+}
+.meeting-time{
+  font-size: 12px;
+  color: #000;
+}
+.meetings-description{
+  font-size: 10px;
+  color: #000;
+
+}
+#how-it-works{
+  min-height: 280px;
+  background: asset-data-url("how-it-works2") no-repeat;
+  background-size: cover;
+  padding: 20px 0;
+  margin-bottom: 80px;
+}
+.how-it-works-step{
+  padding: 0;
+
+  color: #CD998B;
+}
+.how-it-works-circle{
+  width: 135px;
+  height: 135px;
+  border-radius: 50%;
+  border: #CD998B 2px solid;
+}
+h1{
+  font-weight: 300;
+  font-size: 22px;
+  color: #CD998B;
+}
+h2{
+  color: #F8DFBD;
+  font-size: 22px;
+  font-weight: 300;
+}
+h3{
+  color: #CD998B;
+  font-size: 16px;
+  font-weight: 700;
 }
