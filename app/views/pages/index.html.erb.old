@@ -1,0 +1,23 @@
+<h1>Hello world</h1>
+
+
+<% if user_signed_in? %>
+  <p>Привет, <%= current_user.name %></p>
+  <p>Привет твоему городу <%= @user_city.title %>!!</p>
+  <p><%= link_to 'Мой профиль', profile_path %></p>
+  <p><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></p>
+  <h3>Встречи в твоем городе:</h3>
+  <ul>
+    <% @meets.each do |meeting| %>
+      <li><%= link_to meeting.title, user_meeting_path(meeting) %></li>
+    <% end %>
+  </ul>
+<% else %>
+
+  <p><%= link_to 'Войти', new_user_session_path %></p>
+  <p><%= link_to 'Регистрация', new_user_registration_path %></p>
+
+<% end %>
+
+<p><%= link_to 'Встречи', user_meetings_path %></p>
+<p><%= link_to 'Админ-панель', admin_path %></p>

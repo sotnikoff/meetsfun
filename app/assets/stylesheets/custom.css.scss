@@ -1,0 +1,36 @@
+body{
+  font-family: "Roboto", Sans-Serif;
+}
+#mf-main-container{
+  margin-top: 30px;
+}
+#logo{
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+#main-header{
+  height: 320px;
+  background: asset-data-url("main-header.png") no-repeat;
+  background-size: cover;
+}
+#main-header-button{
+  background: none;
+  color: white;
+  border: #FFFFFF solid 2px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  opacity: 0.5;
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 700;
+}
+#main-header-button:hover{
+  opacity: 0.8;
+}
+#main-header-sub-text{
+  color: #FFFFFF;
+  opacity: 0.5;
+  font-weight: 300;
+  font-size: 14px;
+}
