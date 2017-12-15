@@ -15,3 +15,16 @@
 <% if current_user == @meeting.user %>
   <%= link_to 'Редактировать', edit_user_meeting_path(@meeting) %>
 <% end %>
+
+<h2>Комментарии</h2>
+
+<%= form_tag create_user_meeting_comment_path, method: :post do %>
+  <%= text_area_tag :comment, params[:comment] %>
+  <%= hidden_field_tag :comment_meeting_id, @meeting.id %>
+  <%= submit_tag 'Сохранить комментарий' %>
+<% end %>
+<ul>
+  <% @meeting.comments.each do |comment| %>
+    <li><%= comment.text %> <%= "(#{comment.user.name})" if comment.user %></li>
+  <% end %>
+</ul>

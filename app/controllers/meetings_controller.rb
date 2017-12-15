@@ -16,6 +16,21 @@ class MeetingsController < ApplicationController
   end
 
   def user_show
+    # puts @meeting.comments
+  end
+
+  def create_comment
+    if user_signed_in?
+      comment = Comment.new
+      comment.text = params[:comment]
+      comment.user = current_user
+      comment.meeting_id = params[:comment_meeting_id]
+      if comment.save
+        redirect_to user_meeting_path(params[:comment_meeting_id])
+      else
+        redirect_to root_path
+      end
+    end
   end
 
   # GET /meetings/new
