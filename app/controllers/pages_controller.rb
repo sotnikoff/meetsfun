@@ -1,13 +1,11 @@
 class PagesController < ApplicationController
   def index
-    @cities = City.all
+    @interests = Interest.all
     if user_signed_in?
-      @user_city = current_user.city
-      @meets = Meeting.where(city_id: @user_city.id)
+      @meets = Meeting.where(city_id: current_user.city).limit(5)
     else
-      # @meets =
+      @meets = Meeting.limit(5)
     end
-
   end
 
   def admin; end

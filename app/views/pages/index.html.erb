@@ -27,107 +27,43 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-sm-12" id="main-city-meets">
+  <div class="col-sm" id="main-city-meets">
     <div class="row">
-      <div class="col-sm"><h1>Встречи в твоем городе</h1></div>
-      <div class="col-sm text-right">смотреть все встречи в городе</div>
+      <div class="col-sm">
+        <% if user_signed_in? %>
+          <h1>Встречи в твоем городе</h1>
+        <% else %>
+          <h1>Встречи</h1>
+        <% end %>
+      </div>
     </div>
 
     <div class="row">
-      <div class="col-sm">
-        <div class="row">
-          <div class="col-sm text-center meetings-image">
-            <%= image_tag 'test-meet.png', :class => 'img-fluid' %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm text-center meeting-header">
-            <h3>Встреча кулинаров</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm text-center meeting-time">21.12.17 16:30</div>
-        </div>
-        <div class="row">
-          <div class="col-sm text-center meetings-description">Описание</div>
-        </div>
-      </div>
 
-      <div class="col-sm">
-        <div class="row">
-          <div class="col-sm text-center meetings-image">
-            <%= image_tag 'test-meet.png', :class => 'img-fluid' %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm text-center meeting-header">
-            <h3>Встреча кулинаров</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm text-center meeting-time">21.12.17 16:30</div>
-        </div>
-        <div class="row">
-          <div class="col-sm text-center meetings-description">Описание</div>
-        </div>
-      </div>
 
-      <div class="col-sm">
-        <div class="row">
-          <div class="col-sm text-center meetings-image">
-            <%= image_tag 'test-meet.png', :class => 'img-fluid' %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm text-center meeting-header">
-            <h3>Встреча кулинаров</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm text-center meeting-time">21.12.17 16:30</div>
-        </div>
-        <div class="row">
-          <div class="col-sm text-center meetings-description">Описание</div>
-        </div>
-      </div>
+      <% @meets.each do |meet| %>
 
-      <div class="col-sm">
-        <div class="row">
-          <div class="col-sm text-center meetings-image">
-            <%= image_tag 'test-meet.png', :class => 'img-fluid' %>
+        <div class="col-sm">
+          <div class="row">
+            <div class="col-sm text-center meetings-image">
+              <%= image_tag meet.image_url(:large), :class => 'img-fluid' unless meet.image.blank? %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm text-center meeting-header">
+              <h3><%= meet.title %></h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm text-center meeting-time"><%= meet.date_time_start %></div>
+          </div>
+          <div class="row">
+            <div class="col-sm text-center meetings-description"><%= meet.address %></div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm text-center meeting-header">
-            <h3>Встреча кулинаров</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm text-center meeting-time">21.12.17 16:30</div>
-        </div>
-        <div class="row">
-          <div class="col-sm text-center meetings-description">Описание</div>
-        </div>
-      </div>
 
-      <div class="col-sm">
-        <div class="row">
-          <div class="col-sm text-center meetings-image">
-            <%= image_tag 'test-meet.png', :class => 'img-fluid' %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm text-center meeting-header">
-            <h3>Встреча кулинаров</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm text-center meeting-time">21.12.17 16:30</div>
-        </div>
-        <div class="row">
-          <div class="col-sm text-center meetings-description">Описание</div>
-        </div>
-      </div>
+      <% end %>
+
 
     </div>
 
@@ -194,83 +130,13 @@
 
 <div class="row" id="main-interests-meets">
   <h1>Встречи по интересам</h1>
-  <div class="col-sm-12 d-flex justify-content-between main-interests-group">
+  <div class="col-sm-12 d-flex flex-wrap justify-content-between main-interests-group">
 
-    <div class="main-interests-item d-flex justify-content-center align-items-center" style="background-image: url('<%= path_to_image('how-it-works2.png') %>')">
-      <h2>Еда</h2>
-    </div>
-
-    <div class="main-interests-item d-flex justify-content-center align-items-center" style="background-image: url('<%= path_to_image('how-it-works2.png') %>')">
-      <h2>Еда</h2>
-    </div>
-
-    <div class="main-interests-item d-flex justify-content-center align-items-center" style="background-image: url('<%= path_to_image('how-it-works2.png') %>')">
-      <h2>Еда</h2>
-    </div>
-
-    <div class="main-interests-item d-flex justify-content-center align-items-center" style="background-image: url('<%= path_to_image('how-it-works2.png') %>')">
-      <h2>Еда</h2>
-    </div>
-
-  </div>
-
-  <div class="col-sm-12 d-flex justify-content-between main-interests-group">
-
-    <div class="main-interests-item d-flex justify-content-center align-items-center" style="background-image: url('<%= path_to_image('how-it-works2.png') %>')">
-      <h2>Еда</h2>
-    </div>
-
-    <div class="main-interests-item d-flex justify-content-center align-items-center" style="background-image: url('<%= path_to_image('how-it-works2.png') %>')">
-      <h2>Еда</h2>
-    </div>
-
-    <div class="main-interests-item d-flex justify-content-center align-items-center" style="background-image: url('<%= path_to_image('how-it-works2.png') %>')">
-      <h2>Еда</h2>
-    </div>
-
-    <div class="main-interests-item d-flex justify-content-center align-items-center" style="background-image: url('<%= path_to_image('how-it-works2.png') %>')">
-      <h2>Еда</h2>
-    </div>
-
-  </div>
-
-  <div class="col-sm-12 d-flex justify-content-between main-interests-group">
-
-    <div class="main-interests-item d-flex justify-content-center align-items-center" style="background-image: url('<%= path_to_image('how-it-works2.png') %>')">
-      <h2>Еда</h2>
-    </div>
-
-    <div class="main-interests-item d-flex justify-content-center align-items-center" style="background-image: url('<%= path_to_image('how-it-works2.png') %>')">
-      <h2>Еда</h2>
-    </div>
-
-    <div class="main-interests-item d-flex justify-content-center align-items-center" style="background-image: url('<%= path_to_image('how-it-works2.png') %>')">
-      <h2>Еда</h2>
-    </div>
-
-    <div class="main-interests-item d-flex justify-content-center align-items-center" style="background-image: url('<%= path_to_image('how-it-works2.png') %>')">
-      <h2>Еда</h2>
-    </div>
-
-  </div>
-
-  <div class="col-sm-12 d-flex justify-content-between main-interests-group">
-
-    <div class="main-interests-item d-flex justify-content-center align-items-center" style="background-image: url('<%= path_to_image('how-it-works2.png') %>')">
-      <h2>Еда</h2>
-    </div>
-
-    <div class="main-interests-item d-flex justify-content-center align-items-center" style="background-image: url('<%= path_to_image('how-it-works2.png') %>')">
-      <h2>Еда</h2>
-    </div>
-
-    <div class="main-interests-item d-flex justify-content-center align-items-center" style="background-image: url('<%= path_to_image('how-it-works2.png') %>')">
-      <h2>Еда</h2>
-    </div>
-
-    <div class="main-interests-item d-flex justify-content-center align-items-center" style="background-image: url('<%= path_to_image('how-it-works2.png') %>')">
-      <h2>Еда</h2>
-    </div>
+    <% @interests.each do |interest| %>
+      <div class="main-interests-item d-flex justify-content-center align-items-center" style="background-image: url('<%= interest.image_url(:large) %>')">
+        <h2><%= interest.title %></h2>
+      </div>
+    <% end %>
 
   </div>
 
