@@ -1,5 +1,5 @@
 class MeetingsController < ApplicationController
-  before_action :set_meeting, only: [:show, :user_show, :edit, :user_edit, :update, :destroy]
+  before_action :set_meeting, only: [:show, :user_show, :edit, :user_edit, :user_update, :update, :destroy]
   before_action :set_meetings, only: [:index, :user_index]
 
   # GET /meetings
@@ -18,9 +18,6 @@ class MeetingsController < ApplicationController
   def user_show
   end
 
-  def user_edit
-  end
-
   # GET /meetings/new
   def new
     @meeting = Meeting.new
@@ -29,8 +26,18 @@ class MeetingsController < ApplicationController
     end
   end
 
+  def user_new
+    @meeting = Meeting.new
+    if user_signed_in?
+      @meeting.user = current_user
+    end
+  end
+
   # GET /meetings/1/edit
   def edit
+  end
+
+  def user_edit
   end
 
   # POST /meetings
@@ -52,6 +59,18 @@ class MeetingsController < ApplicationController
     end
   end
 
+  def user_create
+    @meeting = Meeting.new(meeting_params)
+    if user_signed_in?
+      @meeting.user = current_user
+    end
+    if @meeting.save
+      redirect_to user_meeting_path(@meeting), notice: 'Meeting was successfully created.'
+    else
+      render :user_new
+    end
+  end
+
   # PATCH/PUT /meetings/1
   # PATCH/PUT /meetings/1.json
   def update
@@ -63,6 +82,14 @@ class MeetingsController < ApplicationController
         format.html { render :edit }
         format.json { render json: @meeting.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def user_update
+    if @meeting.update(meeting_params)
+      redirect_to user_meeting_path(@meeting), notice: 'Meeting was successfully updated.'
+    else
+      render :edit
     end
   end
 

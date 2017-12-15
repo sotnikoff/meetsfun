@@ -1,6 +1,6 @@
-<h1>Редактирование встречи</h1>
+<h1>Создание встречи</h1>
 
-<%= form_for @meeting, url: update_user_meeting_path(@meeting), html: {multipart: true} do |form| %>
+<%= form_for @meeting, url: create_user_meeting_path, html: {multipart: true} do |form| %>
   <% if @meeting.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>

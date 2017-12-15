@@ -3,11 +3,11 @@
     <div class="row h-100">
       <div class="col-sm-12 align-self-center">
         <div class="w-50 mx-auto">
-          <a href="#" role="button" aria-pressed="true" class="btn btn-block" id="main-header-button">
-            Создайте свою незабываемую встречу
-          </a>
+
+          <%= link_to 'Создайте свою незабываемую встречу', new_user_meeting_path, :class => 'btn btn-block', :id => 'main-header-button' %>
+
           <div id="main-header-sub-text" class="text-center">
-            Или присоединитесь к одной из <span class="font-weight-bold">12 324</span> встреч!
+            <a href="<%= user_meetings_path %>">Или присоединитесь к одной из <span class="font-weight-bold"><%= @count.to_s %></span> встреч!</a>
           </div>
         </div>
       </div>
