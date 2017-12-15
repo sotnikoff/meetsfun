@@ -45,6 +45,7 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.new
     if user_signed_in?
       @meeting.user = current_user
+      @meeting.city = current_user.city
     end
   end
 
