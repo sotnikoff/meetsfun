@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212072512) do
+ActiveRecord::Schema.define(version: 20171215201956) do
 
   create_table "cities", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "text"
+    t.integer "user_id"
+    t.integer "meeting_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meeting_id"], name: "index_comments_on_meeting_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "interests", force: :cascade do |t|

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :meetings
     resources :interests
     resources :cities
+    resources :comments
   end
 
   get 'admin', to: 'pages#admin'

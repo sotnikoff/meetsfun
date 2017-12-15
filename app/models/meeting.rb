@@ -5,5 +5,5 @@ class Meeting < ApplicationRecord
 
   validates :title, :presence => true
   mount_uploader :image, ImageUploader
-  searchkick
+  searchkick language: 'russian'
 end
