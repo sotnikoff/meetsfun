@@ -1,5 +1,5 @@
 class MeetingsController < ApplicationController
-  before_action :set_meeting, only: [:show, :user_show, :edit, :user_edit, :user_update, :update, :destroy]
+  before_action :set_meeting, only: [:show, :user_show, :edit, :user_edit, :user_update, :update, :destroy, :user_destroy]
   before_action :set_meetings, only: [:index, :user_index]
 
   # GET /meetings
@@ -100,6 +100,13 @@ class MeetingsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to meetings_url, notice: 'Meeting was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def user_destroy
+    if @meeting.user == current_user
+      @meeting.destroy
+      redirect_to user_meetings_url, notice: 'Meeting was successfully destroyed.'
     end
   end
 

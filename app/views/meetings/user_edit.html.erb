@@ -56,3 +56,5 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<%= link_to 'Удалить встречу', destroy_user_meeting_path(@meeting), :method => :delete, data: { confirm: 'Вы уверены?' } %>

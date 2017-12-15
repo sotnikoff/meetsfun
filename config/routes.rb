@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/meetings/:id', to: 'meetings#user_show', as: 'user_meeting'
   get '/meetings/:id/edit', to: 'meetings#user_edit', as: 'edit_user_meeting'
   patch '/meetings/:id', to: 'meetings#user_update', as: 'update_user_meeting'
+  delete '/meetings/:id', to: 'meetings#user_destroy', as: 'destroy_user_meeting'
   post '/meetings', to: 'meetings#user_create', as: 'create_user_meeting'
   get '/meetings', to: 'meetings#user_index', as: 'user_meetings'
 
