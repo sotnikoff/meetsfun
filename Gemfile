@@ -38,6 +38,7 @@ gem 'popper_js'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'searchkick'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

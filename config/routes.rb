@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post '/meetings', to: 'meetings#user_create', as: 'create_user_meeting'
   get '/meetings', to: 'meetings#user_index', as: 'user_meetings'
 
+  get '/search', to: 'pages#search', as: 'search'
+
   scope '/admin' do
     resources :meetings
     resources :interests
