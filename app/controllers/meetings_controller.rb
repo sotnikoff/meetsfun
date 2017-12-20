@@ -1,5 +1,5 @@
 class MeetingsController < ApplicationController
-  before_action :set_meeting, only: [:show, :user_show, :edit, :user_edit, :user_update, :update, :destroy, :user_destroy]
+  before_action :set_meeting, only: [:show, :user_show, :edit, :user_edit, :user_update, :update, :destroy, :user_destroy, :user_update_participate]
   before_action :set_meetings, only: [:index, :user_index]
 
   # GET /meetings
@@ -45,6 +45,7 @@ class MeetingsController < ApplicationController
     @meeting = Meeting.new
     if user_signed_in?
       @meeting.user = current_user
+      @meeting.city = current_user.city
     end
   end
 
@@ -105,6 +106,12 @@ class MeetingsController < ApplicationController
       redirect_to user_meeting_path(@meeting), notice: 'Meeting was successfully updated.'
     else
       render :edit
+    end
+  end
+
+  def user_update_participate
+    if user_signed_in?
+      @meeting.users << current_user
     end
   end
 
