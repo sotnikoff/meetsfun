@@ -23,8 +23,19 @@
   <%= hidden_field_tag :comment_meeting_id, @meeting.id %>
   <%= submit_tag 'Сохранить комментарий' %>
 <% end %>
+
+
 <ul>
   <% @meeting.comments.each do |comment| %>
     <li><%= comment.text %> <%= "(#{comment.user.name})" if comment.user %></li>
   <% end %>
 </ul>
+
+<h2>Участники</h2>
+<% @meeting.users.each do |user| %>
+  <li><%= user.email %></li>
+<% end %>
+
+<%= form_tag update_user_meeting_participate_path(@meeting), method: :put do %>
+  <%= submit_tag 'Буду участовать' %>
+<% end %>
