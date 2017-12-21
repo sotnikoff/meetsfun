@@ -1,66 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
     <title>Meets.fun</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'application',
-                            'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;subset=cyrillic',
+                            'https://fonts.googleapis.com/css?family=Roboto:100i,300,300i,400,500',
                             media: 'all', 'data-turbolinks-track' => 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-
-    <div class="container" id="mf-main-container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-        <%= link_to 'meets.fun', root_path, :class => 'navbar-brand', :id => 'logo' %>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <% unless user_signed_in? %>
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <%= link_to 'Вход', new_user_session_path, :class => 'nav-link' %>
-              </li>
-              <li class="nav-item">
-                <%= link_to 'Регистрация', new_user_registration_path, :class => 'nav-link' %>
-              </li>
-            </ul>
-          <% else %>
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <%= link_to 'Выход', destroy_user_session_path, :class => 'nav-link', :method => :delete %>
-              </li>
-            </ul>
+  <div class="wrapper">
+    <header class="header">
+      <div class="header-inner container">
+        <div class="header-inner__logo">
+          <%= link_to root_path do %>
+            <%= image_tag 'logo.png', class: 'logo-img', alt: 'logo' %>
           <% end %>
         </div>
-      </nav>
-
-      <% if notice %>
-        <div class="alert alert-primary" role="alert">
-          <%= notice %>
+        <!-- /.header-inner__logo -->
+        <div class="header-inner__pair">
+          <%= link_to 'Регистрация', new_user_registration_path, :class => 'reg-link' %>
+          <%= link_to 'Вход', new_user_session_path, :class => 'login-link' %>
         </div>
-      <% end %>
-
-      <% if alert %>
-        <div class="alert alert-danger" role="alert">
-          <%= alert %>
-        </div>
-      <% end %>
-
-      <%= yield %>
-
-    </div>
-
-    <footer class="footer">
-      <div class="container">
-        <p class="text-muted">Copyright © by Meets.fun, 2017</p>
+        <!-- /.header-inner__four -->
       </div>
+      <!-- /.header-inner container -->
+    </header>
+
+    <%= yield %>
+
+
+    <footer class="footer container">
+      <div class="footer-inner container">
+        <span class="footer-copy">Meets.fun, 2017</span>
+      </div>
+      <!-- Footer text -->
     </footer>
-
-
+    </div>
+    <!-- /.wrapper -->
   </body>
 </html>

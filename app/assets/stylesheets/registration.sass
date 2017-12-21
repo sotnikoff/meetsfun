@@ -1,0 +1,126 @@
+//imported files
+@import "colors"
+//Begin registration
+
+.reg-box
+  display: flex
+  justify-content: center
+  align-items: center
+  background: $grey
+  height: 100%
+.reg-form
+  display: flex
+  flex-direction: column
+  background-color: $white
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.09)
+  flex: 0 1 540px
+  max-width: 100%
+  box-sizing: border-box
+  padding: 0 30px 46px
+  margin: 0 30px 130px
+  .reg-title-box
+    background-color: $grey-four
+    padding: 23px 30px
+    margin: 0 -30px
+    span
+      font-family: Roboto,sans-serif
+      font-size: 1.25rem
+      font-weight: 100
+      font-style: italic
+      color: rgba(0,0,0, .84)
+  form
+    display: flex
+    flex-direction: column
+    margin-top: 33px
+    width: 100%
+    .registration-btn
+      padding: 10px 40px
+      max-width: 176px
+      align-self: center
+      background: $white
+      color: $accent-color
+      font-family: Roboto,sans-serif
+      outline: none
+      border: 1px solid $accent-color
+      margin-top: 17px
+      cursor: pointer
+      &:hover
+        border-color: $accent-color
+        color: $white
+        background: $accent-color
+      &:active
+        background: lighten($accent-color, 10%)
+        border: 1px solid lighten($accent-color, 10%)
+        color: $white
+    label
+      opacity: 0.65
+      font-family: Roboto,sans-serif
+      font-size: 1rem
+      color: $black
+      input
+        font-family: Roboto,sans-serif
+        border: solid 1px $grey-three
+        border-radius: 5px
+        margin-top: 11px
+        margin-bottom: 24px
+        line-height: 40px
+        padding: 0 30px
+        box-sizing: border-box
+        font-size: 0.875rem
+        outline: none
+        width: 100%
+        text-indent: 0
+
+//Animated input
+input:focus::-webkit-input-placeholder
+  text-indent: 1000px
+  transition: text-indent 0.6s ease
+
+input:focus::-moz-placeholder
+  text-indent: 1000px
+  transition: text-indent 0.6s ease
+
+input:focus:-moz-placeholder
+  text-indent: 1000px
+  transition: text-indent 0.6s ease
+
+input:focus:-ms-input-placeholder
+  text-indent: 1000px
+  transition: text-indent 0.6s ease
+
+input::-webkit-input-placeholder
+  text-indent: 0
+  transition: text-indent .4s ease
+  opacity: 0.67
+  font-size: 0.875rem
+  line-height: 3.86
+  letter-spacing: 0.4px
+  color: $black-two
+
+input::-moz-placeholder
+  text-indent: 0
+  transition: text-indent .4s ease
+  opacity: 0.67
+  font-size: 0.875rem
+  letter-spacing: 0.4px
+  color: $black-two
+
+input:-moz-placeholder
+  text-indent: 0
+  transition: text-indent .4s ease
+  opacity: 0.67
+  font-size: 0.875rem
+  letter-spacing: 0.4px
+  color: $black-two
+
+input:-ms-input-placeholder
+  text-indent: 0
+  transition: text-indent .4s ease
+  opacity: 0.67
+  font-size: 0.875rem
+  line-height: 3.86
+  letter-spacing: 0.4px
+  color: $black-two
+
+
+//registration end

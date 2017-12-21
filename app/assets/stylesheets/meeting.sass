@@ -1,0 +1,200 @@
+//imported files
+@import "colors"
+//Begin meeting
+.meeting
+  margin: 17px 20px 0
+  box-sizing: border-box
+  background-color: $white
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.09)
+  .title-box
+    background-color: #E4E4E4
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1)
+    .title
+      display: block
+      opacity: 0.84
+      font-family: Roboto,sans-serif
+      font-size: 20px
+      font-weight: 100
+      font-style: italic
+      color: $black
+      padding: 26px 47px 27px
+      box-sizing: border-box
+  &-box
+    padding: 41px 53px
+    box-sizing: border-box
+    .title-box-event
+      .title-event
+        display: block
+        opacity: 0.65
+        font-family: Roboto,sans-serif
+        font-size: 36px
+        font-weight: 300
+        color: $black
+        padding: 0
+        margin: 0 0 5px
+      .description-event
+        display: block
+        opacity: 0.26
+        font-family: Roboto,sans-serif
+        font-size: 14px
+        font-weight: 300
+        color: $black
+        padding: 0
+        margin: 0 0 23px
+    &__row
+      display: flex
+      justify-content: space-between
+      .col
+        display: flex
+        flex-direction: column
+        &:first-child
+          margin-right: 49px
+          flex: 1 1 100%
+        &:last-child(1)
+          display: flex
+          justify-content: space-between
+          flex-direction: column
+          flex: 2 1 100%
+      .image-box-event
+        position: relative
+        max-width: 300px
+        max-height: 300px
+        &::before
+          content: ''
+          position: absolute
+          top: 0
+          bottom: 0
+          left: 0
+          right: 0
+          background-color: #000000
+          opacity: .77
+        .image-event
+          width: 300px
+          height: 300px
+        .sign-up-event
+          position: absolute
+          top: 50%
+          left: 50%
+          transform: translate(-50%, -50%)
+          font-family: Roboto,sans-serif
+          font-size: 16px
+          color: rgb(253, 113, 69)
+          padding: 10px 15px 9px 16px
+          border: solid 1px rgb(253, 113, 69)
+          border-radius: 19px
+          box-sizing: border-box
+          white-space: nowrap
+      .event-description
+        .date-box
+          display: flex
+          justify-content: space-between
+          padding: 17px 77px 16px
+          box-sizing: border-box
+          border-bottom: solid 1px rgba(151, 151, 151, .18)
+          margin-bottom: 17px
+          .date-start
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            &__date
+              opacity: 0.8
+              font-family: Roboto,sans-serif
+              font-size: 16px
+              font-weight: 500
+              color: $black
+              margin-bottom: 2px
+            &__time
+              opacity: 0.33
+              font-family: Roboto,sans-serif
+              font-size: 12px
+              font-weight: 300
+              color: $black
+          hr
+            width: 28px
+            height: 1px
+            background-color: black
+            opacity: 0.57
+          .date-end
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            &__date
+              opacity: 0.8
+              font-family: Roboto,sans-serif
+              font-size: 16px
+              font-weight: 500
+              color: $black
+              margin-bottom: 2px
+            &__time
+              opacity: 0.33
+              font-family: Roboto,sans-serif
+              font-size: 12px
+              font-weight: 300
+              color: $black
+        .box
+          display: flex
+          justify-content: space-between
+          .text-description-event
+            margin-right: 23px
+            display: flex
+            flex-direction: column
+            min-height: 100%
+            height: 100%
+            border: 1px solid #000
+            .title
+              opacity: 0.38
+              font-family: Roboto,sans-serif
+              font-size: 18px
+              font-weight: 300
+              color: $black
+              align-self: flex-start
+              justify-content: flex-start
+              margin-bottom: 100px
+            .description
+              opacity: 0.78
+              font-family: Roboto,sans-serif
+              font-size: 12px
+              font-weight: 300
+              color: $black
+              align-self: flex-end
+              justify-content: flex-end
+          .organizer-box
+            display: flex
+            flex-direction: column
+            align-items: center
+            margin-top: 32px
+            margin-left: 23px
+            .organizer-image
+              width: 80px
+              height: 80px
+            .post
+              opacity: 0.36
+              font-family: Roboto,sans-serif
+              font-size: 10px
+              font-weight: 300
+              color: $black
+              margin-top: 10px
+            .organizer-name
+              opacity: 0.73
+              font-family: Roboto,sans-serif
+              font-size: 14px
+              font-weight: 300
+              color: $black
+              white-space: nowrap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//End meeting

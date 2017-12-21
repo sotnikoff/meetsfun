@@ -1,5 +1,9 @@
 class PagesController < ApplicationController
   def index
+
+  end
+
+  def main
     @count = Meeting.count
     @interests = Interest.all
     @meets = if user_signed_in?
