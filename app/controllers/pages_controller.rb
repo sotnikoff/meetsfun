@@ -13,6 +13,10 @@ class PagesController < ApplicationController
 
   def search
     @search = Meeting.search(params[:q])
-    @meetings = @search.result
+    @meetings = if params[:q]
+                  @search.result
+                else
+                  Meeting.all
+                end
   end
 end

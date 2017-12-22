@@ -8,6 +8,12 @@
 
 <% end %>
 
-<% @meetings.each do |meet| %>
-  <%= meet.title %> <br />
+<% if @meetings %>
+  <ul>
+    <% @meetings.each do |meet| %>
+      <li>
+        <%= meet.title %>
+      </li>
+    <% end %>
+  </ul>
 <% end %>
