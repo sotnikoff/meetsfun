@@ -12,11 +12,7 @@ class PagesController < ApplicationController
   def admin; end
 
   def search
-    search = params[:query].present? ? params[:query] : nil
-    @results = if search
-                 Meeting.search search, fields: ['title^10', 'description']
-               else
-                 Meeting.all
-               end
+    @search = Meeting.search(params[:q])
+    @meetings = @search.result
   end
 end

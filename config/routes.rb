@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/meetings', to: 'meetings#user_index', as: 'user_meetings'
 
   get '/search', to: 'pages#search', as: 'search'
+  post '/search', to: 'pages#search', as: 'query_search'
 
   scope '/admin' do
     resources :meetings
