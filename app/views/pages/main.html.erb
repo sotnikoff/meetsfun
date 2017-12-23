@@ -45,26 +45,25 @@
       <!-- /.title-box -->
       <div class="events">
 
-        <div class="events__item">
-
-          <%= link_to root_path do %>
-            <%= image_tag 'image-event.png', alt: 'image event', class: 'events__item__img' %>
-          <% end %>
-
-          <div class="events__item__text">
-            <h2 class="event-title">Встреча друзей <wbr>на пикнике</h2>
-            <span class="event-description">Отдых, Общение</span>
-            <time datetime="21 мая 2018 года 10:00" class="event-date">21 мая 2018 года 10:00</time>
-            <span class="event-place">Липецк, село Коренёвщино</span>
+        <% @meets.each do |meet| %>
+          <div class="events__item">
+            <%= link_to root_path do %>
+              <%= image_tag 'image-event.png', alt: 'image event', class: 'events__item__img' %>
+            <% end %>
+            <div class="events__item__text">
+              <h2 class="event-title"><%= meet.title %></h2>
+              <span class="event-description"><%= meet.description %></span>
+              <time datetime="21 мая 2018 года 10:00" class="event-date">21 мая 2018 года 10:00</time>
+              <span class="event-place"><%= meet.address %></span>
+            </div>
+            <a href="#" class="events__item__img-account">
+              <img src="../img/portrait.png" alt="" class="portrait">
+              <%= image_tag 'portrait.png', alt: 'event author portrait', class: 'portrait' %>
+              <span class="name"><%= meet.user.name %></span>
+            </a>
           </div>
-          <a href="#" class="events__item__img-account">
-            <img src="../img/portrait.png" alt="" class="portrait">
-            <%= image_tag 'portrait.png', alt: 'event author portrait', class: 'portrait' %>
-            <span class="name">Иванов Иван</span>
-          </a>
-        </div>
-        <!-- /.events__item -->
-
+          <!-- /.events__item -->
+        <% end %>
       </div>
       <!-- /.events -->
     </div>
