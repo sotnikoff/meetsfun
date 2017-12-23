@@ -1,26 +1,29 @@
-<h2>Log in</h2>
+<div class="main">
+  <main class="log-box container">
+    <div class="log-form">
+      <div class="log-title-box"><span>Вход</span></div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+        <%= f.label :email do %>Электронная почта<br />
+          <%= f.email_field :email, autofocus: true,
+                            :pattern => '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$',
+                            :title => 'example@server.ru' %>
+        <% end %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+        <%= f.label :password do %><br />
+          <%= f.password_field :password, required: true, autocomplete: "off",
+                               :pattern => '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}',
+                               :title => 'Должно содержать хотя бы одну цифру, заглавную или строчную буквы, и минимум 8 символов' %>
+        <% end %>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+        <%= f.submit 'Вход', :class => 'logon-btn' %>
+
+      <% end %>
+      <div class="social-logon">
+        <a href="#" class="social-link"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        <a href="#" class="social-link"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      </div>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+  </main>
+</div>
+<!-- /.main -->

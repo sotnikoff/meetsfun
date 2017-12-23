@@ -1,0 +1,73 @@
+//imported files
+@import "colors"
+//Begin content-events
+
+.events
+  display: flex
+  flex-direction: column
+  padding: 33.85px 0 50.85px
+  &__item
+    display: flex
+    padding: 20.15px 27px
+    transition: ALL .5s linear
+    &:hover
+      transition: ALL .2s linear
+      box-shadow: 2px 0 13px 0 $black
+      cursor: pointer
+    &__img
+      flex: 1 1 auto
+      max-width: 100%
+      transition: all .5s ease
+      &:hover
+        box-sizing: border-box
+        border-radius: 50%
+    &__text
+      display: flex
+      flex-direction: column
+      justify-content: center
+      flex: 3 1 auto
+      border-right: 1px solid  #8d8d8d
+      padding: 19px 20px
+      box-sizing: border-box
+      .event-title
+        display: flex
+        margin: 0
+        padding: 0
+        font-family: Roboto,sans-serif
+        font-size: 1.25rem
+        font-weight: 500
+        color: rgba(0,0,0, .87)
+      .event-description,
+      .event-place,
+      .event-date
+        display: flex
+        font-family: Roboto,sans-serif
+        font-size: 0.875rem
+        font-weight: 300
+        color: rgba(0,0,0, .87)
+      .event-date
+        margin-top: auto
+
+.events__item__img-account
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  flex: 1 1 auto
+  margin-right: -19px
+  .portrait
+    transition: all 1s linear
+    max-width: 80px
+    max-height: 100%
+    margin-bottom: 8px
+  &:hover
+    filter: brightness(0.7)
+    transition: all .4s linear
+  .name
+    opacity: 0.73
+    font-family: Roboto,sans-serif
+    font-size: 0.75rem
+    font-weight: 300
+    color: $black
+
+//end content-events

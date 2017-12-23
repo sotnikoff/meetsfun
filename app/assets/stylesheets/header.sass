@@ -1,0 +1,132 @@
+//imported files
+@import "colors"
+//Begin header
+.header
+  .header-inner
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    padding: 35px 35px 33px 37px
+    box-sizing: border-box
+    &__logo
+      .logo-img
+        max-width: 100%
+    &__pair
+      display: flex
+      flex-wrap: wrap
+      align-items: center
+      margin-left: auto
+      .search
+        position: relative
+        input
+          outline: none
+          padding: 14px 45px 14px 31px
+          background-color: $white
+          border: solid 1px $white-eleven
+          border-radius: 28px
+          margin-right: 13px
+          box-sizing: border-box
+          &::-webkit-input-placeholder
+            opacity: 0.21
+            font-family: Roboto,sans-serif
+            font-size: 1.125rem
+            font-weight: 300
+            font-style: italic
+            color: $black
+            text-overflow: ellipsis
+          &::-moz-placeholder
+            opacity: 0.21
+            font-family: Roboto,sans-serif
+            font-size: 1.125rem
+            font-weight: 300
+            font-style: italic
+            color: $black
+            text-overflow: ellipsis
+          &:-moz-placeholder
+            opacity: 0.21
+            font-family: Roboto,sans-serif
+            font-size: 1.125rem
+            font-weight: 300
+            font-style: italic
+            color: $black
+            text-overflow: ellipsis
+          &:-ms-input-placeholder
+            opacity: 0.21
+            font-family: Roboto,sans-serif
+            font-size: 1.125rem
+            font-weight: 300
+            font-style: italic
+            color: $black
+            text-overflow: ellipsis
+          &::-webkit-input-placeholder
+            text-indent: 0
+            transition: text-indent 0.3s ease
+          &::-moz-placeholder
+            text-indent: 0
+            transition: text-indent 0.3s ease
+          &:-moz-placeholder
+            text-indent: 0
+            transition: text-indent 0.3s ease
+          &:-ms-input-placeholder
+            text-indent: 0
+            transition: text-indent 0.3s ease
+          &:focus::-webkit-input-placeholder
+            text-indent: 500px
+            transition: text-indent 0.3s ease
+          &:focus::-moz-placeholder
+            text-indent: 500px
+            transition: text-indent 0.3s ease
+          &:focus:-moz-placeholder
+            text-indent: 500px
+            transition: text-indent 0.3s ease
+          &:focus:-ms-input-placeholder
+            text-indent: 500px
+            transition: text-indent 0.3s ease
+        .search-icon
+          position: absolute
+          right: 40px
+          top: 16px
+          color: $white-eleven
+          cursor: pointer
+          &:active
+            color: darken($white-eleven, 10%)
+      .reg-link
+        border: solid 1px #464646
+        border-radius: 40px
+        display: block
+        text-align: center
+        font-family: Roboto, sans-serif
+        font-size: 1.125rem
+        font-weight: 300
+        color: $black
+        padding: 13px 47px 14px 48px
+        &:hover
+          border-color: $accent-color
+          color: $accent-color
+      .login-link
+        display: block
+        font-family: Roboto, sans-serif
+        font-size: 1.125rem
+        font-weight: 300
+        color: $black
+        padding: 13px 8px 13px 0
+        margin-left: 21px
+        &:hover
+          color: $accent-color
+      .account
+        display: flex
+        align-items: center
+        .image-account
+          max-width: 60px
+          max-height: 100%
+        .login-text
+          margin-left: 13px
+          font-family: Roboto,sans-serif
+          font-size: 0.875rem
+          font-weight: 300
+          color: rgba(0,0,0, .72)
+
+
+//header end
+
+

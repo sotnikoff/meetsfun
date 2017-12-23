@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
 
   get 'admin', to: 'pages#admin'
+  get 'main', to: 'pages#main', as: 'main'
   get 'profile', to: 'profiles#show', as: 'profile'
   get 'profile/edit', to: 'profiles#edit', as: 'edit_profile'
 

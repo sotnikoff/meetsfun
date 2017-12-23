@@ -39,6 +39,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'searchkick'
+gem 'font-awesome-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
