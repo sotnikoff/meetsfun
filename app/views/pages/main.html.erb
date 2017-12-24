@@ -1,0 +1,74 @@
+
+<!-- /.header -->
+<div class="main">
+  <div class="content-inner container">
+    <div class="col col_left">
+      <div class="title-box">
+        <span class="title">Поиск событий</span>
+      </div>
+      <!-- /.title-box -->
+      <div class="find-events-box">
+        <p class="title">Ключевые слова</p>
+        <label>
+          <input type="text" class="find-input" placeholder="Футбол">
+        </label>
+        <p class="title">Интересы</p>
+        <div class="box-radio">
+          <div class="box-radio__col">
+            <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
+            <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
+            <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
+            <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label></div>
+          <!-- /.box-radio__col -->
+          <div class="box-radio__col">
+            <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
+            <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
+            <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
+            <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
+          </div>
+          <!-- /.box-radio__col -->
+        </div>
+        <!-- /.box-radio -->
+        <p class="title">Город</p>
+        <label>
+          <input  class="find-input" placeholder="Москва" type="text">
+        </label>
+        <button class="find-btn">Поиск</button>
+      </div>
+      <!-- /.find-events-box -->
+    </div>
+    <!-- /.content-inner__col_left -->
+    <div class="col col_right">
+      <div class="title-box">
+        <span class="title">События</span>
+      </div>
+      <!-- /.title-box -->
+      <div class="events">
+
+        <% @meets.each do |meet| %>
+          <div class="events__item">
+            <%= link_to root_path do %>
+              <%= image_tag 'image-event.png', alt: 'image event', class: 'events__item__img' %>
+            <% end %>
+            <div class="events__item__text">
+              <h2 class="event-title"><%= meet.title %></h2>
+              <span class="event-description"><%= meet.description %></span>
+              <time datetime="21 мая 2018 года 10:00" class="event-date">21 мая 2018 года 10:00</time>
+              <span class="event-place"><%= meet.address %></span>
+            </div>
+            <a href="#" class="events__item__img-account">
+              <img src="../img/portrait.png" alt="" class="portrait">
+              <%= image_tag 'portrait.png', alt: 'event author portrait', class: 'portrait' %>
+              <span class="name"><%= meet.user.name %></span>
+            </a>
+          </div>
+          <!-- /.events__item -->
+        <% end %>
+      </div>
+      <!-- /.events -->
+    </div>
+    <!-- /.content-inner__col_right -->
+  </div>
+  <!-- /.content-inner container -->
+</div>
+<!-- /.main -->

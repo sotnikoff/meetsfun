@@ -1,0 +1,120 @@
+//imported files
+@import "colors"
+//Begin content
+
+.main
+  .content-inner
+    display: flex
+    justify-content: space-between
+    box-sizing: border-box
+    padding: 0 35px 33px
+    flex-wrap: wrap
+    .col
+      &_left
+        flex: 0 1 auto
+        max-width: 450px
+        background-color: $white
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.09)
+        margin-right: 35px
+        height: 100%
+        .find-events-box
+          padding: 19px 34px 30px 31px
+          .find-btn
+            display: inline-block
+            margin-top: 21px
+            padding: 10px 64px 9px 65px
+            background-color: #fd7145
+            font-family: Roboto,sans-serif
+            font-size: 1rem
+            color: rgba(255,255,255, .82)
+            transition: all .3s linear
+            outline: none
+            border: 1px solid $accent-color
+            cursor: pointer
+            &:hover
+              color: rgba(255,255,255, .82)
+              background-color: lighten(#fd7145, 3%)
+              transition: all .3s linear
+            &:active
+              border: 1px solid #fd7145
+              background-color: rgba(255,255,255, .82)
+              color: #fd7145
+          .title
+            font-family: Roboto,sans-serif
+            font-size: 1.25rem
+            font-weight: normal
+            color: rgba(0,0,0, .65)
+            padding: 0
+            margin: 17px 0 11px
+          .find-input
+            width: 100%
+            padding: 10px 30px
+            box-sizing: border-box
+            border: solid 1px rgb(226, 226, 226)
+            outline: none
+            &::-webkit-input-placeholder
+              font-family: Roboto,sans-serif
+              font-size: 0.875rem
+              color: rgba(0,0,0, .68)
+              text-overflow: ellipsis
+            &::-moz-placeholder
+              font-family: Roboto,sans-serif
+              font-size: 0.875rem
+              color: rgba(0,0,0, .68)
+              text-overflow: ellipsis
+            &:-moz-placeholder
+              font-family: Roboto,sans-serif
+              font-size: 0.875rem
+              color: rgba(0,0,0, .68)
+              text-overflow: ellipsis
+            &:-ms-input-placeholder
+              font-family: Roboto,sans-serif
+              font-size: 0.875rem
+              color: rgba(0,0,0, .68)
+              text-overflow: ellipsis
+            &::-webkit-input-placeholder
+              text-indent: 0
+              transition: text-indent 0.3s ease
+            &::-moz-placeholder
+              text-indent: 0
+              transition: text-indent 0.3s ease
+            &:-moz-placeholder
+              text-indent: 0
+              transition: text-indent 0.3s ease
+            &:-ms-input-placeholder
+              text-indent: 0
+              transition: text-indent 0.3s ease
+            &:focus::-webkit-input-placeholder
+              text-indent: 1000px
+              transition: text-indent 0.3s ease
+            &:focus::-moz-placeholder
+              text-indent: 1000px
+              transition: text-indent 0.3s ease
+            &:focus:-moz-placeholder
+              text-indent: 1000px
+              transition: text-indent 0.3s ease
+            &:focus:-ms-input-placeholder
+              text-indent: 1000px
+              transition: text-indent 0.3s ease
+      &_right
+        flex: 2 1 auto
+        max-width: 847px
+        background-color: $white
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.09)
+        margin-left: 35px
+        height: 100%
+      .title-box
+        display: flex
+        align-items: center
+        padding: 23px 26px
+        background-color: $grey-four
+        box-shadow: 0 1px 1px 0 rgba(0,0,0, .19)
+        .title
+          font-family: Roboto,sans-serif
+          font-size: 1.25rem
+          font-weight: 100
+          font-style: italic
+          color: rgba(0,0,0, .83)
+
+
+//end content

@@ -1,0 +1,101 @@
+//imported files
+@import "colors"
+//Begin logon
+.log-box
+  display: flex
+  justify-content: center
+  background: $grey
+  min-height: 100%
+.log-form
+  display: flex
+  flex-direction: column
+  background-color: $white
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.09)
+  flex: 0 1 601px
+  max-width: 100%
+  box-sizing: border-box
+  padding: 0 30px 33px
+  margin: 160px 30px 218px
+  .log-title-box
+    background-color: $grey-four
+    padding: 23px 0 23px 30px
+    margin: 0 -30px
+  span
+    font-family: Roboto,sans-serif
+    font-size: 1.25rem
+    font-weight: 100
+    font-style: italic
+    color: rgba(0,0,0, .84)
+  form
+    display: flex
+    flex-direction: column
+    width: 100%
+    margin-top: 35px
+    .logon-btn
+      padding: 10px 70px
+      max-width: 176px
+      align-self: center
+      background: $white
+      color: $accent-color
+      font-family: Roboto,sans-serif
+      outline: none
+      cursor: pointer
+      border: 1px solid $accent-color
+      &:hover
+        border-color: $accent-color
+        color: $white
+        background: $accent-color
+      &:active
+        background: lighten($accent-color, 10%)
+        border: 1px solid lighten($accent-color, 10%)
+        color: $white
+    label
+      opacity: 0.65
+      font-family: Roboto,sans-serif
+      font-size: 1rem
+      color: $black
+      //margin-bottom: 11px
+      input
+        font-family: Roboto,sans-serif
+        border: solid 1px $grey-three
+        border-radius: 5px
+        margin-top: 11px
+        margin-bottom: 24px
+        width: 100%
+        line-height: 40px
+        box-sizing: border-box
+        padding: 0 30px 0 30px
+        font-size: 0.875rem
+        outline: none
+
+.social-logon
+  display: flex
+  justify-content: center
+  .social-link
+    box-sizing: border-box
+    padding: 10px
+    margin: 28px 25px 0 0
+    border: 1px solid $accent-color
+    border-radius: 4px
+    background: #ffffff
+    color: $accent-color
+    &:nth-last-child(1)
+      margin-right: 0
+    &:hover
+      background: $accent-color
+      color: #ffffff
+    &:active
+      background: lighten($accent-color,10%)
+      border: 1px solid lighten($accent-color, 10%)
+      color: #ffffff
+    .fa-facebook
+      padding: 0 4px
+    .fa-twitter
+      padding: 0 1px
+    .fa
+      display: inline-block
+
+
+
+
+//logon end

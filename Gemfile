@@ -40,6 +40,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'ransack'
 gem 'access-granted'
+gem 'font-awesome-rails'
+>>>>>>> new_frontend
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
