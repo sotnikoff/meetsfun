@@ -41,6 +41,7 @@ gem 'mini_magick'
 gem 'ransack'
 gem 'access-granted'
 gem 'font-awesome-rails'
+gem 'autoprefixer-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
