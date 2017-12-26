@@ -97,31 +97,33 @@
             </div>
             <!-- /.title-box -->
             <div class="members-box">
+
+
               <div class="members-box__col">
                 <div class="members-box__item">
                   <a href="#" class="member-link-profile">
-                    <img src="../img/portrait.png" alt="" class="member-photo">
+                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
                     <span class="member-name">Иванов Иван</span>
                   </a>
                 </div>
                 <!-- /.members-box__item -->
                 <div class="members-box__item">
                   <a href="#" class="member-link-profile">
-                    <img src="../img/portrait.png" alt="" class="member-photo">
+                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
                     <span class="member-name">Иванов Иван</span>
                   </a>
                 </div>
                 <!-- /.members-box__item -->
                 <div class="members-box__item">
                   <a href="#" class="member-link-profile">
-                    <img src="../img/portrait.png" alt="" class="member-photo">
+                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
                     <span class="member-name">Иванов Иван</span>
                   </a>
                 </div>
                 <!-- /.members-box__item -->
                 <div class="members-box__item">
                   <a href="#" class="member-link-profile">
-                    <img src="../img/portrait.png" alt="" class="member-photo">
+                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
                     <span class="member-name">Иванов Иван</span>
                   </a>
                 </div>
@@ -131,28 +133,28 @@
               <div class="members-box__col">
                 <div class="members-box__item">
                   <a href="#" class="member-link-profile">
-                    <img src="../img/portrait.png" alt="" class="member-photo">
+                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
                     <span class="member-name">Иванов Иван</span>
                   </a>
                 </div>
                 <!-- /.members-box__item -->
                 <div class="members-box__item">
                   <a href="#" class="member-link-profile">
-                    <img src="../img/portrait.png" alt="" class="member-photo">
+                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
                     <span class="member-name">Иванов Иван</span>
                   </a>
                 </div>
                 <!-- /.members-box__item -->
                 <div class="members-box__item">
                   <a href="#" class="member-link-profile">
-                    <img src="../img/portrait.png" alt="" class="member-photo">
+                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
                     <span class="member-name">Иванов Иван</span>
                   </a>
                 </div>
                 <!-- /.members-box__item -->
                 <div class="members-box__item">
                   <a href="#" class="member-link-profile">
-                    <img src="../img/portrait.png" alt="" class="member-photo">
+                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
                     <span class="member-name">Иванов Иван</span>
                   </a>
                 </div>
@@ -162,28 +164,28 @@
               <div class="members-box__col">
                 <div class="members-box__item">
                   <a href="#" class="member-link-profile">
-                    <img src="../img/portrait.png" alt="" class="member-photo">
+                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
                     <span class="member-name">Иванов Иван</span>
                   </a>
                 </div>
                 <!-- /.members-box__item -->
                 <div class="members-box__item">
                   <a href="#" class="member-link-profile">
-                    <img src="../img/portrait.png" alt="" class="member-photo">
+                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
                     <span class="member-name">Иванов Иван</span>
                   </a>
                 </div>
                 <!-- /.members-box__item -->
                 <div class="members-box__item">
                   <a href="#" class="member-link-profile">
-                    <img src="../img/portrait.png" alt="" class="member-photo">
+                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
                     <span class="member-name">Иванов Иван</span>
                   </a>
                 </div>
                 <!-- /.members-box__item -->
                 <div class="members-box__item">
                   <a href="#" class="member-link-profile">
-                    <img src="../img/portrait.png" alt="" class="member-photo">
+                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
                     <span class="member-name">Иванов Иван</span>
                   </a>
                 </div>
@@ -201,76 +203,35 @@
             </div>
             <!-- /.title-box -->
             <div class="comments-group">
-              <form action="#" class="form-add-comment">
-                <textarea name="" id="" cols="30" rows="30" class="field-add-comment"></textarea>
-                <button type="submit" class="btn-comment-save">Сохранить комментарий</button>
-              </form>
+              <%= form_tag create_user_meeting_comment_path, method: :post, class: 'form-add-comment' do %>
+
+                <%= text_area_tag :comment, params[:comment], class: 'field-add-comment', rows: 30, cols: 30 %>
+                <%= hidden_field_tag :comment_meeting_id, @meeting.id %>
+                <%= submit_tag 'Сохранить комментарий', class: 'btn-comment-save' %>
+
+              <% end %>
               <div class="comments-members">
-                <div class="comments-members__item">
-                  <div class="image-author">
-                    <a href="#" class="member-link-profile"><img src="../img/portrait.png"
-                                                                 alt=""></a>
+
+                <% @meeting.comments.each do |comment| %>
+
+                  <div class="comments-members__item">
+                    <div class="image-author">
+                      <a href="#" class="member-link-profile"><%= image_tag 'portrait.png', :alt => 'Meeting image' %></a>
+                    </div>
+                    <!-- /.image-author -->
+                    <div class="comments-text">
+                      <a href="#"><span class="name-author-comment"><%= comment.user.name %></span></a>
+                      <span class="date-create-comment">10 явнваря 2017 17:10</span>
+                      <p class="comment-field">
+                        <%= comment.text %>
+                      </p>
+                      <!-- /.comment-text -->
+                    </div>
+                    <!-- /.comments-text -->
                   </div>
-                  <!-- /.image-author -->
-                  <div class="comments-text">
-                    <a href="#"><span class="name-author-comment">Иванов Иван</span></a>
-                    <span class="date-create-comment">10 явнваря 2017 17:10</span>
-                    <p class="comment-field">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                      suscipit iaculis lectus et volutpat. Morbi ut nulla commodo, gravida
-                      dui eu, rhoncus purus. Nulla facilisi. Nullam nec libero ornare,
-                      tincidunt velit id, ultricies ex. Proin vel laoreet odio, ut luctus
-                      dui. Donec tortor neque, vulputate id fringilla nec, euismod id
-                      lacus.
-                    </p>
-                    <!-- /.comment-text -->
-                  </div>
-                  <!-- /.comments-text -->
-                </div>
-                <!-- /.comments__item -->
-                <div class="comments-members__item">
-                  <div class="image-author">
-                    <a href="#" class="member-link-profile"><img src="../img/portrait.png"
-                                                                 alt=""></a>
-                  </div>
-                  <!-- /.image-author -->
-                  <div class="comments-text">
-                    <a href="#"><span class="name-author-comment">Иванов Иван</span></a>
-                    <span class="date-create-comment">10 явнваря 2017 17:10</span>
-                    <p class="comment-field">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-                      suscipit iaculis lectus et volutpat. Morbi ut nulla commodo, gravida
-                      dui eu, rhoncus purus. Nulla facilisi. Nullam nec libero ornare,
-                      tincidunt velit id, ultricies ex. Proin vel laoreet odio, ut luctus
-                      dui. Donec tortor neque, vulputate id fringilla nec, euismod id
-                      lacus.
-                    </p>
-                    <!-- /.comment-text -->
-                  </div>
-                  <!-- /.comments-text -->
-                </div>
-                <!-- /.comments__item -->
-                <div class="comments-members__item">
-                  <div class="image-author">
-                    <a href="#" class="member-link-profile"><img src="../img/portrait.png"
-                                                                 alt=""></a>
-                  </div>
-                  <!-- /.image-author -->
-                  <div class="comments-text">
-                    <a href="#"><span class="name-author-comment">Иванов Иван</span></a>
-                    <span class="date-create-comment">10 явнваря 2017 17:10</span>
-                    <p class="comment-field">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin suscipit
-                      iaculis lectus et volutpat. Morbi ut nulla commodo, gravida dui eu,
-                      rhoncus purus. Nulla facilisi. Nullam nec libero ornare, tincidunt velit
-                      id, ultricies ex. Proin vel laoreet odio, ut luctus dui. Donec tortor
-                      neque, vulputate id fringilla nec, euismod id lacus.
-                    </p>
-                    <!-- /.comment-text -->
-                  </div>
-                  <!-- /.comments-text -->
-                </div>
-                <!-- /.comments__item -->
+                  <!-- /.comments__item -->
+
+                <% end %>
 
               </div>
               <!-- /.comments -->
@@ -286,48 +247,3 @@
   </div>
   <!-- /.meeting -->
 </div>
-
-
-
-
-<h1><%= @meeting.title %></h1>
-
-
-<p><%= @meeting.description %></p>
-
-<%= image_tag @meeting.image_url(:large) unless @meeting.image.blank? %>
-
-<p>Автор встречи: <b><%= @meeting.user.name %></b></p>
-
-<p>Встреча начнется <b><%= @meeting.date_time_start %></b></p>
-<p>Встреча завершится <b><%= @meeting.date_time_finish %></b></p>
-
-<p>Встреча пройдет по адресу: <b><%= @meeting.address %></b></p>
-
-<% if current_user == @meeting.user %>
-  <%= link_to 'Редактировать', edit_user_meeting_path(@meeting) %>
-<% end %>
-
-<h2>Комментарии</h2>
-
-<%= form_tag create_user_meeting_comment_path, method: :post do %>
-  <%= text_area_tag :comment, params[:comment] %>
-  <%= hidden_field_tag :comment_meeting_id, @meeting.id %>
-  <%= submit_tag 'Сохранить комментарий' %>
-<% end %>
-
-
-<ul>
-  <% @meeting.comments.each do |comment| %>
-    <li><%= comment.text %> <%= "(#{comment.user.name})" if comment.user %></li>
-  <% end %>
-</ul>
-
-<h2>Участники</h2>
-<% @meeting.users.each do |user| %>
-  <li><%= user.email %></li>
-<% end %>
-
-<%= form_tag update_user_meeting_participate_path(@meeting), method: :put do %>
-  <%= submit_tag 'Буду участовать' %>
-<% end %>
