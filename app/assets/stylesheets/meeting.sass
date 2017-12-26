@@ -4,30 +4,31 @@
 .meeting
   margin: 17px 20px 0
   box-sizing: border-box
-  background-color: $white
-  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.09)
+  &-box
+    background-color: $white
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.09)
   .title-box
-    background-color: #E4E4E4
+    background-color: $grey-four
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1)
     .title
       display: block
       opacity: 0.84
       font-family: Roboto,sans-serif
-      font-size: 20px
+      font-size: 1.25rem
       font-weight: 100
       font-style: italic
       color: $black
       padding: 26px 47px 27px
       box-sizing: border-box
-  &-box
-    padding: 41px 53px
+  &-event
+    padding: 41px 58px 41px 54px
     box-sizing: border-box
     .title-box-event
       .title-event
         display: block
         opacity: 0.65
         font-family: Roboto,sans-serif
-        font-size: 36px
+        font-size: 2.25rem
         font-weight: 300
         color: $black
         padding: 0
@@ -36,7 +37,7 @@
         display: block
         opacity: 0.26
         font-family: Roboto,sans-serif
-        font-size: 14px
+        font-size: 0.875rem
         font-weight: 300
         color: $black
         padding: 0
@@ -48,18 +49,17 @@
         display: flex
         flex-direction: column
         &:first-child
-          margin-right: 49px
-          flex: 1 1 100%
-        &:last-child(1)
+          margin-right: 24.5px
+        &:nth-child(2)
           display: flex
-          justify-content: space-between
           flex-direction: column
-          flex: 2 1 100%
+          margin-left: 24.5px
       .image-box-event
         position: relative
         max-width: 300px
         max-height: 300px
-        &::before
+        transition: all .5s linear
+        &:hover::before
           content: ''
           position: absolute
           top: 0
@@ -68,6 +68,7 @@
           right: 0
           background-color: #000000
           opacity: .77
+          transition: all .3s linear
         .image-event
           width: 300px
           height: 300px
@@ -77,13 +78,21 @@
           left: 50%
           transform: translate(-50%, -50%)
           font-family: Roboto,sans-serif
-          font-size: 16px
+          font-size: 1rem
           color: rgb(253, 113, 69)
           padding: 10px 15px 9px 16px
           border: solid 1px rgb(253, 113, 69)
           border-radius: 19px
           box-sizing: border-box
           white-space: nowrap
+          transition: all .3s linear
+          &:hover
+            background-color: rgb(253, 113, 69)
+            color: white
+          &:active
+            background-color: lighten(rgb(253, 113, 69), 10%)
+            color: white
+            margin-top: 3px
       .event-description
         .date-box
           display: flex
@@ -100,14 +109,14 @@
             &__date
               opacity: 0.8
               font-family: Roboto,sans-serif
-              font-size: 16px
+              font-size: 1rem
               font-weight: 500
               color: $black
               margin-bottom: 2px
             &__time
               opacity: 0.33
               font-family: Roboto,sans-serif
-              font-size: 12px
+              font-size: 0.75rem
               font-weight: 300
               color: $black
           hr
@@ -123,14 +132,14 @@
             &__date
               opacity: 0.8
               font-family: Roboto,sans-serif
-              font-size: 16px
+              font-size: 1rem
               font-weight: 500
               color: $black
               margin-bottom: 2px
             &__time
               opacity: 0.33
               font-family: Roboto,sans-serif
-              font-size: 12px
+              font-size: 0.75rem
               font-weight: 300
               color: $black
         .box
@@ -142,59 +151,70 @@
             flex-direction: column
             min-height: 100%
             height: 100%
-            border: 1px solid #000
             .title
               opacity: 0.38
               font-family: Roboto,sans-serif
-              font-size: 18px
+              font-size: 1.125rem
               font-weight: 300
-              color: $black
+              color: rgba(0,0,0, .38)
               align-self: flex-start
               justify-content: flex-start
               margin-bottom: 100px
             .description
               opacity: 0.78
               font-family: Roboto,sans-serif
-              font-size: 12px
+              font-size: 0.75rem
               font-weight: 300
-              color: $black
+              color: rgba(0,0,0, .78)
               align-self: flex-end
               justify-content: flex-end
+              text-align: justify
+              .text
+                padding: 0
+                margin: 0
           .organizer-box
             display: flex
             flex-direction: column
             align-items: center
             margin-top: 32px
             margin-left: 23px
+            margin-right: 28px
             .organizer-image
               width: 80px
               height: 80px
             .post
               opacity: 0.36
               font-family: Roboto,sans-serif
-              font-size: 10px
+              font-size: 0.625rem
               font-weight: 300
               color: $black
               margin-top: 10px
             .organizer-name
               opacity: 0.73
               font-family: Roboto,sans-serif
-              font-size: 14px
+              font-size: 0.875rem
               font-weight: 300
               color: $black
               white-space: nowrap
-
-
-
-
-
-
-
-
-
-
-
-
-
+    .event-place
+      margin-top: 11px
+      .box
+        display: flex
+        flex-direction: column
+        text-align: right
+        .text
+          font-family: Roboto,sans-serif
+          font-size: 1.125rem
+          font-weight: 300
+          color: rgba(0,0,0, .38)
+        .meeting-place
+          font-family: Roboto,sans-serif
+          font-size: 0.75rem
+          color: rgba(0,0,0, .78)
+      .map-image
+        margin-top: 13px
+        .map
+          max-width: 100%
+          min-height: 100%
 
 //End meeting

@@ -1,5 +1,3 @@
-
-<!-- /.header -->
 <div class="main">
   <div class="content-inner container">
     <div class="col col_left">
@@ -8,32 +6,41 @@
       </div>
       <!-- /.title-box -->
       <div class="find-events-box">
-        <p class="title">Ключевые слова</p>
-        <label>
-          <input type="text" class="find-input" placeholder="Футбол">
-        </label>
-        <p class="title">Интересы</p>
-        <div class="box-radio">
-          <div class="box-radio__col">
-            <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
-            <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
-            <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
-            <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label></div>
-          <!-- /.box-radio__col -->
-          <div class="box-radio__col">
-            <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
-            <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
-            <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
-            <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
+        <%= search_form_for @search, url: query_main_search_path, html: { method: :post } do |f| %>
+          <p class="title">Ключевые слова</p>
+          <%= f.label :title_or_description_cont do %>
+            <%= f.search_field :title_or_description_cont, :class => 'find-input' %>
+          <% end %>
+          <p class="title">Интересы</p>
+          <div class="box-radio">
+            <div class="box-radio__col">
+
+              <label>
+                <input type="checkbox" checked>
+                <span class="radio-btn"></span>
+                Спорт
+              </label>
+
+              <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
+              <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
+              <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
+            </div>
+            <!-- /.box-radio__col -->
+            <div class="box-radio__col">
+              <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
+              <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
+              <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
+              <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
+            </div>
+            <!-- /.box-radio__col -->
           </div>
-          <!-- /.box-radio__col -->
-        </div>
-        <!-- /.box-radio -->
-        <p class="title">Город</p>
-        <label>
-          <input  class="find-input" placeholder="Москва" type="text">
-        </label>
-        <button class="find-btn">Поиск</button>
+          <!-- /.box-radio -->
+          <p class="title">Город</p>
+          <%= f.label :city_id_eq do %>
+            <%= f.search_field :city_id_eq, :class => 'find-input' %>
+          <% end %>
+          <%= f.submit 'Поиск', :class => 'find-btn' %>
+        <% end %>
       </div>
       <!-- /.find-events-box -->
     </div>
@@ -47,17 +54,16 @@
 
         <% @meets.each do |meet| %>
           <div class="events__item">
-            <%= link_to root_path do %>
-              <%= image_tag 'image-event.png', alt: 'image event', class: 'events__item__img' %>
+            <%= link_to user_meeting_path(meet) do %>
+              <div style="background-image: url(<%= image_url meet.image %>); background-size: cover" class="events__item__img"></div>
             <% end %>
             <div class="events__item__text">
-              <h2 class="event-title"><%= meet.title %></h2>
-              <span class="event-description"><%= meet.description %></span>
-              <time datetime="21 мая 2018 года 10:00" class="event-date">21 мая 2018 года 10:00</time>
-              <span class="event-place"><%= meet.address %></span>
-            </div>
+            <h2 class="event-title"><%= meet.title %></h2>
+            <span class="event-description"><%= meet.description %></span>
+            <time datetime="21 мая 2018 года 10:00" class="event-date"><%= meet.date_time_start %></time>
+            <span class="event-place"><%= meet.address %></span>
+          </div>
             <a href="#" class="events__item__img-account">
-              <img src="../img/portrait.png" alt="" class="portrait">
               <%= image_tag 'portrait.png', alt: 'event author portrait', class: 'portrait' %>
               <span class="name"><%= meet.user.name %></span>
             </a>

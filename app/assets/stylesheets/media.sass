@@ -46,7 +46,6 @@
           .find-btn
             padding: 10px 0 !important
 
-
   .log-box
     .log-form
       margin-top: 0
@@ -78,11 +77,77 @@
         align-self: center
         flex: 1 1 100%
         padding-bottom: 20px
-
-
-
 @media screen and (max-width: 768px)
 @media screen and (max-width: 840px)
+@media screen and (max-width: 864px)
+  .box
+    display: flex
+    flex-direction: column
+    .text-description-event
+      order: 2
+    .organizer-box
+      order: 1
+      margin-top: 10px !important
+
+@media screen and (max-width: 900px)
+  .meeting-wide-box
+    align-items: center
+  .meeting-event__row
+    display: flex
+    flex-direction: column
+    .col
+      align-items: center
+      justify-content: center
+      margin-right: 0 !important
+
+      .image-box-event
+        align-self: center
+        justify-content: center
+      .event-description
+        margin-top: 20px
+        .box
+          .text-description-event
+            margin-top: 10px
+            display: flex
+            .title
+              display: flex
+              align-self: center
+              margin-bottom: 20px !important
+  .meeting-wide-box
+    display: flex
+    flex-direction: column !important
+    .col-left
+      order: 2
+    .col-right
+      order: 1
+  .col-left
+    .members-box
+      &__col
+        display: flex
+        flex-direction: row !important
+        justify-content: space-between!important
+        flex-wrap: wrap
+        .members-box__item:nth-child(1n)
+          flex: 1 1 40% !important
+        .members-box__item:nth-child(2n)
+          flex: 1 1 40% !important
+@media screen and (max-width: 926px)
+  .date-start
+    display: flex
+    flex-direction: column
+    align-items: center
+    &__date
+      text-align: center
+  .date-end
+    display: flex
+    flex-direction: column
+    align-items: center
+    &__date
+      text-align: center
+
+@media screen and (max-width: 953px)
+  .members-box
+    justify-content: center
 @media screen and (max-width: 1024px)
 @media screen and (max-width: 1152px)
   .main

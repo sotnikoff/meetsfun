@@ -1,11 +1,19 @@
 <h1>Поиск</h1>
-<%= form_tag search_path, method: :get do %>
-  <%= text_field_tag :query, params[:query] %>
-  <%= submit_tag 'Поиск' %>
+<%= search_form_for @search, url: query_search_path, method: :post do |f| %>
+
+  <%= f.label :title_cont %>
+  <%= f.search_field :title_cont %>
+
+  <%= f.submit %>
+
 <% end %>
 
-<ul>
-  <% @results.each do |res| %>
-    <li><%= link_to res.title, user_meeting_path(res) %></li>
-  <% end %>
-</ul>
+<% if @meetings %>
+  <ul>
+    <% @meetings.each do |meet| %>
+      <li>
+        <%= meet.title %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
