@@ -55,8 +55,8 @@
 
         <% @meets.each do |meet| %>
           <div class="events__item">
-            <%= link_to root_path do %>
-              <%= image_tag 'image-event.png', alt: 'image event', class: 'events__item__img' %>
+            <%= link_to user_meeting_path(meet) do %>
+              <%= image_tag meet.image, alt: 'image event', class: 'events__item__img' %>
             <% end %>
             <div class="events__item__text">
               <h2 class="event-title"><%= meet.title %></h2>

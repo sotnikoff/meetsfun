@@ -91,18 +91,25 @@
           &:active
             color: darken($white-eleven, 10%)
       .reg-link
-        border: solid 1px #464646
+        border: solid 1px $accent-color
         border-radius: 40px
         display: block
         text-align: center
         font-family: Roboto, sans-serif
         font-size: 1.125rem
         font-weight: 300
-        color: $black
+        color: $accent-color
         padding: 13px 47px 14px 48px
+        transition: all .4s linear
         &:hover
           border-color: $accent-color
-          color: $accent-color
+          color: white
+          background-color: $accent-color
+          transition: all .4s linear
+        &:active
+          border-color: lighten($accent-color, 10%)
+          color: white
+          background-color: lighten($accent-color, 10%)
       .login-link
         display: block
         font-family: Roboto, sans-serif
