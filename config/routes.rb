@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get '/search', to: 'pages#search', as: 'search'
   post '/search', to: 'pages#search', as: 'query_search'
+  post '/main', to: 'pages#main', as: 'query_main_search'
 
   scope '/admin' do
     resources :meetings

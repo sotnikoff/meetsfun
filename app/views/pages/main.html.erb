@@ -7,32 +7,41 @@
       </div>
       <!-- /.title-box -->
       <div class="find-events-box">
-        <p class="title">Ключевые слова</p>
-        <label>
-          <input type="text" class="find-input" placeholder="Футбол">
-        </label>
-        <p class="title">Интересы</p>
-        <div class="box-radio">
-          <div class="box-radio__col">
-            <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
-            <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
-            <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
-            <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label></div>
-          <!-- /.box-radio__col -->
-          <div class="box-radio__col">
-            <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
-            <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
-            <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
-            <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
+        <%= search_form_for @search, url: query_main_search_path, html: { method: :post } do |f| %>
+          <p class="title">Ключевые слова</p>
+          <%= f.label :title_or_description_cont do %>
+            <%= f.search_field :title_or_description_cont, :class => 'find-input' %>
+          <% end %>
+          <p class="title">Интересы</p>
+          <div class="box-radio">
+            <div class="box-radio__col">
+
+              <label>
+                <input type="checkbox" checked>
+                <span class="radio-btn"></span>
+                Спорт
+              </label>
+
+              <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
+              <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
+              <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
+            </div>
+            <!-- /.box-radio__col -->
+            <div class="box-radio__col">
+              <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
+              <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
+              <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
+              <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
+            </div>
+            <!-- /.box-radio__col -->
           </div>
-          <!-- /.box-radio__col -->
-        </div>
-        <!-- /.box-radio -->
-        <p class="title">Город</p>
-        <label>
-          <input  class="find-input" placeholder="Москва" type="text">
-        </label>
-        <button class="find-btn">Поиск</button>
+          <!-- /.box-radio -->
+          <p class="title">Город</p>
+          <%= f.label :city_id_eq do %>
+            <%= f.search_field :city_id_eq, :class => 'find-input' %>
+          <% end %>
+          <%= f.submit 'Поиск', :class => 'find-btn' %>
+        <% end %>
       </div>
       <!-- /.find-events-box -->
     </div>
