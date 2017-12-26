@@ -12,6 +12,7 @@ module Meetsfun
     config.load_defaults 5.1
     config.time_zone = 'Europe/Moscow'
     config.active_record.default_timezone = :local
+    config.autoload_paths += %W(#{config.root}/app/policies #{config.root}/app/roles)
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

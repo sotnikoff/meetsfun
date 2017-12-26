@@ -38,8 +38,10 @@ gem 'popper_js'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'searchkick'
+gem 'ransack'
+gem 'access-granted'
 gem 'font-awesome-rails'
+gem 'autoprefixer-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
