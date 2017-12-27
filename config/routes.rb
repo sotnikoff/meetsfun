@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   post '/comments', to: 'meetings#create_comment', as: 'create_user_meeting_comment'
   get '/meetings', to: 'meetings#user_index', as: 'user_meetings'
 
+  scope '/api' do
+    get '/cities', to: 'cities#api_index', as: 'api_cities'
+  end
+
+
   get '/search', to: 'pages#search', as: 'search'
   post '/search', to: 'pages#search', as: 'query_search'
   post '/main', to: 'pages#main', as: 'query_main_search'

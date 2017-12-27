@@ -37,7 +37,12 @@
           <!-- /.box-radio -->
           <p class="title">Город</p>
           <%= f.label :city_id_eq do %>
-            <%= f.search_field :city_id_eq, :class => 'find-input' %>
+            <%= f.search_field :city_title_eq, :class => 'find-input', :list => 'city_datalist', :autocomplete => false %>
+            <datalist id="city_datalist">
+              <% City.all.each do |city| %>
+                <option value="<%= city.title %>"></option>
+              <% end %>
+            </datalist>
           <% end %>
           <%= f.submit 'Поиск', :class => 'find-btn' %>
         <% end %>
