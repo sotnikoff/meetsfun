@@ -16,9 +16,13 @@
         <div class="meeting-event__row">
           <div class="col">
             <div class="image-box-event">
-              <%= image_tag @meeting.image_url(:thumb), :alt => 'Meeting image',
-                            :class => 'image-event' unless @meeting.image.blank? %>
-
+              <% if @meeting.image.file %>
+                <%= image_tag @meeting.image, :alt => 'Meeting image',
+                            :class => 'image-event' %>
+              <% else %>
+                <%= image_tag @meeting.interest.image, :alt => 'Meeting image',
+                              :class => 'image-event' %>
+              <% end %>
               <% if @participate.count == 0 %>
                 <%= link_to update_user_meeting_participate_path, :method => :put, :class => 'sign-up-event' do %>
                   <i class="fa fa-plus" aria-hidden="true"></i>  Буду участвовать
