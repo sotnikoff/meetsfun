@@ -19,7 +19,9 @@ class MeetingsController < ApplicationController
   end
 
   def user_show
-    @participate = @meeting.users.where(:id => current_user.id)
+    if user_signed_in?
+      @participate = @meeting.users.where(:id => current_user.id)
+    end
   end
 
   def create_comment

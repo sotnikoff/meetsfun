@@ -23,16 +23,21 @@
                 <%= image_tag @meeting.interest.image, :alt => 'Meeting image',
                               :class => 'image-event' %>
               <% end %>
-              <% if @participate.count == 0 %>
-                <%= link_to update_user_meeting_participate_path, :method => :put, :class => 'sign-up-event' do %>
-                  <i class="fa fa-plus" aria-hidden="true"></i>  Буду участвовать
+              <% if user_signed_in? %>
+                <% if @participate.count == 0 %>
+                  <%= link_to update_user_meeting_participate_path, :method => :put, :class => 'sign-up-event' do %>
+                    <i class="fa fa-plus" aria-hidden="true"></i>  Буду участвовать
+                  <% end %>
+                <% else %>
+                  <%= link_to delete_user_meeting_participate_path, :method => :delete, :class => 'sign-up-event' do %>
+                    <i class="fa fa-minus" aria-hidden="true"></i>  Отменить участие
+                  <% end %>
                 <% end %>
               <% else %>
-                <%= link_to delete_user_meeting_participate_path, :method => :delete, :class => 'sign-up-event' do %>
-                  <i class="fa fa-minus" aria-hidden="true"></i>  Отменить участие
+                <%= link_to new_user_session_path, :class => 'sign-up-event' do %>
+                  Авторизуйтесь
                 <% end %>
               <% end %>
-
 
             </div>
             <!-- /.image-box-event -->
