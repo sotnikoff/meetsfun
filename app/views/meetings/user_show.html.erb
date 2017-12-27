@@ -60,9 +60,7 @@
                   </div>
                   <!-- /.title -->
                   <div class="description">
-                    <p class="text">
-                      <%= @meeting.description %>
-                    </p>
+                    <p class="text"><%= @meeting.description %></p>
                   </div>
                   <!-- /.description -->
                 </div>
@@ -89,7 +87,7 @@
                     Место проведения встречи
                 </span>
             <span class="meeting-place">
-                    <%= @meeting.address %>
+                    <b><%= @meeting.city.title if @meeting.city %></b>, <%= @meeting.address %>
                 </span>
           </div>
           <!-- /.title-box -->
