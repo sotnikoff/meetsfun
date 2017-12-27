@@ -37,7 +37,12 @@
           <!-- /.box-radio -->
           <p class="title">Город</p>
           <%= f.label :city_id_eq do %>
-            <%= f.search_field :city_id_eq, :class => 'find-input' %>
+            <%= f.search_field :city_title_eq, :class => 'find-input', :list => 'city_datalist', :autocomplete => false %>
+            <datalist id="city_datalist">
+              <% City.all.each do |city| %>
+                <option value="<%= city.title %>"></option>
+              <% end %>
+            </datalist>
           <% end %>
           <%= f.submit 'Поиск', :class => 'find-btn' %>
         <% end %>
@@ -55,14 +60,14 @@
         <% @meets.each do |meet| %>
           <div class="events__item">
             <%= link_to user_meeting_path(meet) do %>
-              <%= image_tag meet.image, alt: 'image event', class: 'events__item__img' %>
+              <div style="background-image: url(<%= image_url meet.image %>); background-size: cover" class="events__item__img"></div>
             <% end %>
             <div class="events__item__text">
-              <h2 class="event-title"><%= meet.title %></h2>
-              <span class="event-description"><%= meet.description %></span>
-              <time datetime="21 мая 2018 года 10:00" class="event-date">21 мая 2018 года 10:00</time>
-              <span class="event-place"><%= meet.address %></span>
-            </div>
+            <h2 class="event-title"><%= meet.title %></h2>
+            <span class="event-description"><%= meet.description %></span>
+            <time datetime="21 мая 2018 года 10:00" class="event-date"><%= meet.date_time_start %></time>
+            <span class="event-place"><%= meet.address %></span>
+          </div>
             <a href="#" class="events__item__img-account">
               <%= image_tag 'portrait.png', alt: 'event author portrait', class: 'portrait' %>
               <span class="name"><%= meet.user.name %></span>

@@ -19,7 +19,7 @@
               <%= image_tag @meeting.image_url(:thumb), :alt => 'Meeting image',
                             :class => 'image-event' unless @meeting.image.blank? %>
               <a href="#" class="sign-up-event">
-                <i class="fa fa-plus" aria-hidden="true"></i>Буду
+                <i class="fa fa-plus" aria-hidden="true"></i>  Буду
                 участвовать</a>
             </div>
             <!-- /.image-box-event -->
@@ -203,12 +203,16 @@
             </div>
             <!-- /.title-box -->
             <div class="comments-group">
-              <%= form_tag create_user_meeting_comment_path, method: :post, class: 'form-add-comment' do %>
 
-                <%= text_area_tag :comment, params[:comment], class: 'field-add-comment', rows: 30, cols: 30 %>
-                <%= hidden_field_tag :comment_meeting_id, @meeting.id %>
-                <%= submit_tag 'Сохранить комментарий', class: 'btn-comment-save' %>
+              <% if user_signed_in? %>
+                <%= form_tag create_user_meeting_comment_path, method: :post, class: 'form-add-comment' do %>
 
+                  <%= text_area_tag :comment, params[:comment],
+                                    class: 'field-add-comment', rows: 30, cols: 30, required: true %>
+                  <%= hidden_field_tag :comment_meeting_id, @meeting.id %>
+                  <%= submit_tag 'Сохранить комментарий', class: 'btn-comment-save' %>
+
+                <% end %>
               <% end %>
               <div class="comments-members">
 
