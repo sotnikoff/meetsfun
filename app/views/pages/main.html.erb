@@ -11,6 +11,7 @@
           <%= f.label :title_or_description_cont do %>
             <%= f.search_field :title_or_description_cont, :class => 'find-input' %>
           <% end %>
+          <!--
           <p class="title">Интересы</p>
           <div class="box-radio">
             <div class="box-radio__col">
@@ -26,14 +27,15 @@
               <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
             </div>
             <!-- /.box-radio__col -->
-            <div class="box-radio__col">
+            <!--<div class="box-radio__col">
               <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
               <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
               <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
               <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
             </div>
             <!-- /.box-radio__col -->
-          </div>
+          <!-- </div> -->
+
           <!-- /.box-radio -->
           <p class="title">Город</p>
           <%= f.label :city_id_eq do %>
@@ -72,7 +74,7 @@
             <h2 class="event-title"><%= meet.title %></h2>
             <span class="event-description"><%= meet.description %></span>
             <time datetime="21 мая 2018 года 10:00" class="event-date"><%= meet.date_time_start %></time>
-            <span class="event-place"><%= meet.address %></span>
+            <span class="event-place"><%= meet.city.title if meet.city %>, <%= meet.address %></span>
           </div>
             <a href="#" class="events__item__img-account">
               <%= image_tag 'portrait.png', alt: 'event author portrait', class: 'portrait' %>

@@ -1,5 +1,8 @@
 class MeetingsController < ApplicationController
-  before_action :set_meeting, only: [:show, :user_show, :edit, :user_edit, :user_update, :update, :destroy, :user_destroy, :user_update_participate]
+  before_action :set_meeting, only: [:show, :user_show, :edit, :user_edit,
+                                     :user_update, :update, :destroy,
+                                     :user_destroy, :user_update_participate,
+                                     :user_delete_participate]
   before_action :set_meetings, only: [:index, :user_index]
 
   # GET /meetings
@@ -16,7 +19,7 @@ class MeetingsController < ApplicationController
   end
 
   def user_show
-    # puts @meeting.comments
+    @participate = @meeting.users.where(:id => current_user.id)
   end
 
   def create_comment
@@ -111,7 +114,21 @@ class MeetingsController < ApplicationController
 
   def user_update_participate
     if user_signed_in?
-      @meeting.users << current_user
+      participate = @meeting.users.where(:id => current_user.id)
+      if participate.count == 0
+        @meeting.users << current_user
+        redirect_to user_meeting_path(@meeting)
+      end
+    end
+  end
+
+  def user_delete_participate
+    if user_signed_in?
+      participate = @meeting.users.where(:id => current_user.id)
+      if participate
+        @meeting.users.delete(participate)
+        redirect_to user_meeting_path(@meeting)
+      end
     end
   end
 
