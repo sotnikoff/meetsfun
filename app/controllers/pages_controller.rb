@@ -8,7 +8,7 @@ class PagesController < ApplicationController
     @meets = if params[:q]
                   @search.result
                 else
-                  Meeting.all
+                  Meeting.order(date_time_start: :desc).first(5)
                 end
   end
 
@@ -19,7 +19,7 @@ class PagesController < ApplicationController
     @meetings = if params[:q]
                   @search.result
                 else
-                  Meeting.all
+                  Meeting.order(date_time_start: :desc).first(5)
                 end
   end
 end
