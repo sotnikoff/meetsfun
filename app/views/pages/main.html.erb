@@ -68,7 +68,11 @@
         <% @meets.each do |meet| %>
           <div class="events__item">
             <%= link_to user_meeting_path(meet) do %>
-              <div style="background-image: url(<%= image_url meet.image %>); background-size: cover" class="events__item__img"></div>
+              <% if meet.image.file %>
+                <div style="background-image: url(<%= image_url meet.image %>); background-size: cover" class="events__item__img"></div>
+              <% else %>
+                <div style="background-image: url(<%= image_url meet.interest.image %>); background-size: cover" class="events__item__img"></div>
+              <% end %>
             <% end %>
             <div class="events__item__text">
             <h2 class="event-title"><%= meet.title %></h2>
