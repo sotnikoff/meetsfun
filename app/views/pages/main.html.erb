@@ -11,6 +11,7 @@
           <%= f.label :title_or_description_cont do %>
             <%= f.search_field :title_or_description_cont, :class => 'find-input' %>
           <% end %>
+          <!--
           <p class="title">Интересы</p>
           <div class="box-radio">
             <div class="box-radio__col">
@@ -26,18 +27,24 @@
               <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
             </div>
             <!-- /.box-radio__col -->
-            <div class="box-radio__col">
+            <!--<div class="box-radio__col">
               <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
               <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
               <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
               <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
             </div>
             <!-- /.box-radio__col -->
-          </div>
+          <!-- </div> -->
+
           <!-- /.box-radio -->
           <p class="title">Город</p>
           <%= f.label :city_id_eq do %>
-            <%= f.search_field :city_id_eq, :class => 'find-input' %>
+            <%= f.search_field :city_title_eq, :class => 'find-input', :list => 'city_datalist', :autocomplete => false %>
+            <datalist id="city_datalist">
+              <% City.all.each do |city| %>
+                <option value="<%= city.title %>"></option>
+              <% end %>
+            </datalist>
           <% end %>
           <%= f.submit 'Поиск', :class => 'find-btn' %>
         <% end %>
@@ -48,6 +55,12 @@
     <div class="col col_right">
       <div class="title-box">
         <span class="title">События</span>
+        <a href="#" class="th-link">
+          <%= image_tag 'Shape.png', alt: 'List' %>
+        </a>
+        <a href="#" class="map-link">
+          <%= image_tag 'map.png', alt: 'Map' %>
+        </a>
       </div>
       <!-- /.title-box -->
       <div class="events">
@@ -55,13 +68,17 @@
         <% @meets.each do |meet| %>
           <div class="events__item">
             <%= link_to user_meeting_path(meet) do %>
-              <div style="background-image: url(<%= image_url meet.image %>); background-size: cover" class="events__item__img"></div>
+              <% if meet.image.file %>
+                <div style="background-image: url(<%= image_url meet.image %>); background-size: cover" class="events__item__img"></div>
+              <% else %>
+                <div style="background-image: url(<%= image_url meet.interest.image %>); background-size: cover" class="events__item__img"></div>
+              <% end %>
             <% end %>
             <div class="events__item__text">
             <h2 class="event-title"><%= meet.title %></h2>
             <span class="event-description"><%= meet.description %></span>
             <time datetime="21 мая 2018 года 10:00" class="event-date"><%= meet.date_time_start %></time>
-            <span class="event-place"><%= meet.address %></span>
+            <span class="event-place"><%= meet.city.title if meet.city %>, <%= meet.address %></span>
           </div>
             <a href="#" class="events__item__img-account">
               <%= image_tag 'portrait.png', alt: 'event author portrait', class: 'portrait' %>

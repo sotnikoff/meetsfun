@@ -7,6 +7,15 @@ class CitiesController < ApplicationController
     @cities = City.all
   end
 
+  def api_index
+    @cities = City.all
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @cities }
+      format.json { render :json => @cities }
+    end
+  end
+
   # GET /cities/1
   # GET /cities/1.json
   def show

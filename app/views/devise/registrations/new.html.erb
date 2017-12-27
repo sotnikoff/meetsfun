@@ -28,7 +28,12 @@
           %>
         <% end %>
         <%= f.label :city_id do %>Город<br />
-          <%= f.text_field :city_id, :required => true, autocomplete: "off", placeholder: 'ИД города' %>
+          <%= f.text_field :city_id, :required => true, autocomplete: "off", :list => 'city_datalist' %>
+          <datalist id="city_datalist">
+            <% City.all.each do |city| %>
+              <option value="<%= city.id %>"><%= city.title %></option>
+            <% end %>
+          </datalist>
         <% end %>
 
         <%= f.submit 'Регистрация', :class => 'registration-btn' %>

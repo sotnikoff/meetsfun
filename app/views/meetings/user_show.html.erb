@@ -16,11 +16,29 @@
         <div class="meeting-event__row">
           <div class="col">
             <div class="image-box-event">
-              <%= image_tag @meeting.image_url(:thumb), :alt => 'Meeting image',
-                            :class => 'image-event' unless @meeting.image.blank? %>
-              <a href="#" class="sign-up-event">
-                <i class="fa fa-plus" aria-hidden="true"></i>  Буду
-                участвовать</a>
+              <% if @meeting.image.file %>
+                <%= image_tag @meeting.image, :alt => 'Meeting image',
+                            :class => 'image-event' %>
+              <% else %>
+                <%= image_tag @meeting.interest.image, :alt => 'Meeting image',
+                              :class => 'image-event' %>
+              <% end %>
+              <% if user_signed_in? %>
+                <% if @participate.count == 0 %>
+                  <%= link_to update_user_meeting_participate_path, :method => :put, :class => 'sign-up-event' do %>
+                    <i class="fa fa-plus" aria-hidden="true"></i>  Буду участвовать
+                  <% end %>
+                <% else %>
+                  <%= link_to delete_user_meeting_participate_path, :method => :delete, :class => 'sign-up-event' do %>
+                    <i class="fa fa-minus" aria-hidden="true"></i>  Отменить участие
+                  <% end %>
+                <% end %>
+              <% else %>
+                <%= link_to new_user_session_path, :class => 'sign-up-event' do %>
+                  Авторизуйтесь
+                <% end %>
+              <% end %>
+
             </div>
             <!-- /.image-box-event -->
           </div>
@@ -51,9 +69,7 @@
                   </div>
                   <!-- /.title -->
                   <div class="description">
-                    <p class="text">
-                      <%= @meeting.description %>
-                    </p>
+                    <p class="text"><%= @meeting.description %></p>
                   </div>
                   <!-- /.description -->
                 </div>
@@ -80,7 +96,7 @@
                     Место проведения встречи
                 </span>
             <span class="meeting-place">
-                    <%= @meeting.address %>
+                    <b><%= @meeting.city.title if @meeting.city %></b>, <%= @meeting.address %>
                 </span>
           </div>
           <!-- /.title-box -->
@@ -97,99 +113,28 @@
             </div>
             <!-- /.title-box -->
             <div class="members-box">
-
-
               <div class="members-box__col">
-                <div class="members-box__item">
-                  <a href="#" class="member-link-profile">
-                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
-                    <span class="member-name">Иванов Иван</span>
-                  </a>
-                </div>
-                <!-- /.members-box__item -->
-                <div class="members-box__item">
-                  <a href="#" class="member-link-profile">
-                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
-                    <span class="member-name">Иванов Иван</span>
-                  </a>
-                </div>
-                <!-- /.members-box__item -->
-                <div class="members-box__item">
-                  <a href="#" class="member-link-profile">
-                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
-                    <span class="member-name">Иванов Иван</span>
-                  </a>
-                </div>
-                <!-- /.members-box__item -->
-                <div class="members-box__item">
-                  <a href="#" class="member-link-profile">
-                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
-                    <span class="member-name">Иванов Иван</span>
-                  </a>
-                </div>
+                <% @meeting.users.all.each do |user| %>
+                  <div class="members-box__item">
+                    <a href="#" class="member-link-profile">
+                      <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
+                      <span class="member-name"><%= user.name %></span>
+                    </a>
+                  </div>
+                <% end %>
                 <!-- /.members-box__item -->
               </div>
               <!-- /.members-box__col -->
+
+
               <div class="members-box__col">
-                <div class="members-box__item">
-                  <a href="#" class="member-link-profile">
-                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
-                    <span class="member-name">Иванов Иван</span>
-                  </a>
-                </div>
-                <!-- /.members-box__item -->
-                <div class="members-box__item">
-                  <a href="#" class="member-link-profile">
-                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
-                    <span class="member-name">Иванов Иван</span>
-                  </a>
-                </div>
-                <!-- /.members-box__item -->
-                <div class="members-box__item">
-                  <a href="#" class="member-link-profile">
-                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
-                    <span class="member-name">Иванов Иван</span>
-                  </a>
-                </div>
-                <!-- /.members-box__item -->
-                <div class="members-box__item">
-                  <a href="#" class="member-link-profile">
-                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
-                    <span class="member-name">Иванов Иван</span>
-                  </a>
-                </div>
-                <!-- /.members-box__item -->
+
               </div>
               <!-- /.members-box__col -->
+
+
               <div class="members-box__col">
-                <div class="members-box__item">
-                  <a href="#" class="member-link-profile">
-                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
-                    <span class="member-name">Иванов Иван</span>
-                  </a>
-                </div>
-                <!-- /.members-box__item -->
-                <div class="members-box__item">
-                  <a href="#" class="member-link-profile">
-                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
-                    <span class="member-name">Иванов Иван</span>
-                  </a>
-                </div>
-                <!-- /.members-box__item -->
-                <div class="members-box__item">
-                  <a href="#" class="member-link-profile">
-                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
-                    <span class="member-name">Иванов Иван</span>
-                  </a>
-                </div>
-                <!-- /.members-box__item -->
-                <div class="members-box__item">
-                  <a href="#" class="member-link-profile">
-                    <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
-                    <span class="member-name">Иванов Иван</span>
-                  </a>
-                </div>
-                <!-- /.members-box__item -->
+
               </div>
               <!-- /.members-box__col -->
 
