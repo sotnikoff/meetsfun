@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Logon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/bundle/normalize.css">
+    <link rel="stylesheet" href="../styles/bundle/index.css">
+    <link rel="stylesheet" href="../styles/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100i,300,300i,400,500" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <div class="header-inner container">
+            <div class="header-inner__logo">
+                <a href="index.html">
+                    <img src="../img/logo.svg" alt="logo" class="logo-img">
+                </a>
+            </div>
+            <!-- /.header-inner__logo -->
+            <div class="header-inner__pair">
+                <a href="registration.html" class="reg-link">Регистрация</a>
+                <a href="logon.html" class="login-link">Вход</a>
+            </div>
+            <!-- /.header-inner__four -->
+        </div>
+        <!-- /.header-inner container -->
+    </header>
+    <div class="main">
+        <main class="meeting-create-box container">
+            <div class="create-form">
+                <span class="title">
+                    Создание встречи
+                </span>
+                <!-- /.title -->
+                <form action="#" class="meeting-create-form">
+                    <label for="meeting-name" class="meeting-name"><span class="name">Название:</span><input type="text"
+                                                                                                             id="meeting-name"></label>
+                    <label for="meeting-description"><span class="description">Описание:</span>
+                        <textarea name="" id="meeting-description" cols="30" rows="10"
+                                  class="meeting-description-field"></textarea>
+                    </label>
+                    <label for="meeting-city"><span>Город:</span>
+                        <select name="meeting-city" id="meeting-city">
+                            <option disabled value="">Выберите город:</option>
+                            <option value="">Воронеж</option>
+                            <option value="">Липецк</option>
+                            <option value="">Москва</option>
+                        </select>
+                    </label>
+                    <label for="meeting-interests"><span>Интересы:</span>
+                        <select name="meeting-interests" id="meeting-interests">
+                            <option value="">Кулинария</option>
+                            <option value="">Путешествия</option>
+                            <option value="">Разработка</option>
+                            <option value="">Спорт</option>
+                        </select>
+                    </label>
+                    <label class="start-meeting"><span>Начало встречи:</span>
+                        <select name="" id="start-meeting-year">
+                            <option value="">2017</option>
+                        </select>
+                        <select name="" id="start-meeting-month">
+                            <option value="">Декабрь</option>
+                        </select>
+                        <select name="" id="start-meeting-day">
+                            <option value="">24</option>
+                        </select>
+                        —
+                        <select name="" id="start-meeting-hour">
+                            <option value="">22</option>
+                        </select>
+                        :
+                        <select name="" id="start-meeting-minute">
+                            <option value="">00</option>
+                        </select>
+                    </label>
+
+                    <label class="end-meeting"><span>Конец встречи:</span>
+
+                        <select name="" id="end-meeting-year">
+                            <option value="">2017</option>
+                        </select>
+                        <select name="" id="end-meeting-month">
+                            <option value="">Декабрь</option>
+                        </select>
+
+                        <select name="" id="end-meeting-day">
+                            <option value="">22</option>
+                        </select>
+                        —
+                        <select name="" id="end-meeting-hour">
+                            <option value="">22</option>
+                        </select>
+                        :
+                        <select name="" id="end-meeting-minute">
+                            <option value="">00</option>
+                        </select>
+                    </label>
+                    <label for="adress"><span>Адрес:</span><input type="text" id="adress"></label>
+                    <div class="file-upload">
+                        <label><input type="file" name="meeting-file-download">
+                            <span>Выберите файл</span>
+                        </label>
+                    </div>
+                    <button type="submit" name="meeting-create"class="btn-create-meeting">Создание встречи</button>
+                </form>
+            </div>
+        </main>
+    </div>
+    <!-- /.main -->
+    <footer class="footer">
+        <div class="footer-inner container">
+            <span class="footer-copy">Meets.fun, 2017</span>
+        </div>
+        <!-- Footer text -->
+    </footer>
+    <!-- Footer -->
+</div>
+<!-- /.wrapper -->
+</body>
+</html>
