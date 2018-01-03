@@ -1,58 +1,57 @@
-<h1>Создание встречи</h1>
+<div class="main">
+  <main class="meeting-create-box container">
+    <div class="create-form">
+                <span class="title">
+                    Создание встречи
+                </span>
+      <!-- /.title -->
+      <%= form_for @meeting, url: create_user_meeting_path,
+                   html: {multipart: true, class: 'meeting-create-form'} do |form| %>
 
-<%= form_for @meeting, url: create_user_meeting_path, html: {multipart: true} do |form| %>
-  <% if @meeting.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
-
-      <ul>
-        <% @meeting.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+        <%= form.label :title, class: 'meeting_name' do %>
+          <span class="name">Название:</span>
+          <%= form.text_field :title, id: :meeting_title, :required => true %>
         <% end %>
-      </ul>
+
+        <%= form.label :description do%><span class="description">Описание:</span>
+          <%= form.text_area :description, id: :meeting_description,
+                             class: 'meeting-description-field',
+                             cols: 30, rows: 10 %>
+        <% end %>
+
+        <%= form.label :city_id do %><span>Город:</span>
+          <%= form.collection_select :city_id , City.order(:title),:id,:title, include_blank: false %>
+        <% end %>
+
+        <%= form.label :interest_id do %><span>Интересы:</span>
+          <%= form.collection_select :interest_id , Interest.order(:title),:id,:title, include_blank: false %>
+        <% end %>
+
+        <%= form.label :date_time_start, class: 'start-meeting' do %><span>Начало встречи:</span>
+          <%= form.datetime_select :date_time_start, id: :meeting_date_time_start %>
+        <% end %>
+
+        <%= form.label :date_time_finish, class: 'end-meeting' do %><span>Конец встречи:</span>
+          <%= form.datetime_select :date_time_finish, id: :meeting_date_time_finish %>
+        <% end %>
+
+        <%= form.label :address do %>
+          <span>Адрес:</span>
+          <%= form.text_field :address, id: :meeting_address %>
+        <% end %>
+
+        <div class="file-upload">
+
+          <%= form.label :image do %>
+            <%= form.file_field :image %>
+            <span>Выберите файл</span>
+          <% end %>
+
+        </div>
+
+        <%= form.submit 'Создание встречи', class: 'btn-create-meeting'%>
+
+      <% end %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :meeting_title, :required => true %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :meeting_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :city_id %>
-    <%= form.collection_select :city_id , City.order(:title),:id,:title, include_blank: false %>
-  </div>
-
-  <div class="field">
-    <%= form.label :interest_id %>
-    <%= form.collection_select :interest_id , Interest.order(:title),:id,:title, include_blank: false %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date_time_start %>
-    <%= form.datetime_select :date_time_start, id: :meeting_date_time_start %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date_time_finish %>
-    <%= form.datetime_select :date_time_finish, id: :meeting_date_time_finish %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address, id: :meeting_address %>
-  </div>
-
-  <div class="field">
-    <%= form.file_field :image %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+  </main>
+</div>

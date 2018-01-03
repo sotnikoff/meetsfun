@@ -15,32 +15,34 @@
         <!-- /.title-box-event -->
         <div class="meeting-event__row">
           <div class="col">
-            <div class="image-box-event">
-              <% if @meeting.image.file %>
-                <%= image_tag @meeting.image, :alt => 'Meeting image',
-                            :class => 'image-event' %>
+            <div class="relation">
+              <div class="relation__ratio"></div>
+              <!-- /.relation__ratio -->
+              <% image = if @meeting.image.file %>
+                <% @meeting.image %>
               <% else %>
-                <%= image_tag @meeting.interest.image, :alt => 'Meeting image',
-                              :class => 'image-event' %>
+                <% @meeting.interest.image %>
               <% end %>
-              <% if user_signed_in? %>
-                <% if @participate.count == 0 %>
-                  <%= link_to update_user_meeting_participate_path, :method => :put, :class => 'sign-up-event' do %>
-                    <i class="fa fa-plus" aria-hidden="true"></i>  Буду участвовать
+              <div class="image-box-event relation__content" style="background-image: url(<%= image %>);">
+                <% if user_signed_in? %>
+                  <% if @participate.count == 0 %>
+                    <%= link_to update_user_meeting_participate_path, :method => :put, :class => 'sign-up-event' do %>
+                      <i class="fa fa-plus" aria-hidden="true"></i>  Буду участвовать
+                    <% end %>
+                  <% else %>
+                    <%= link_to delete_user_meeting_participate_path, :method => :delete, :class => 'sign-up-event no-sign-up-event' do %>
+                      <i class="fa fa-minus" aria-hidden="true"></i>  Отменить участие
+                    <% end %>
                   <% end %>
                 <% else %>
-                  <%= link_to delete_user_meeting_participate_path, :method => :delete, :class => 'sign-up-event' do %>
-                    <i class="fa fa-minus" aria-hidden="true"></i>  Отменить участие
+                  <%= link_to new_user_session_path, :class => 'sign-up-event' do %>
+                    Авторизуйтесь
                   <% end %>
                 <% end %>
-              <% else %>
-                <%= link_to new_user_session_path, :class => 'sign-up-event' do %>
-                  Авторизуйтесь
-                <% end %>
-              <% end %>
-
+              </div>
+              <!-- /.image-box-event -->
             </div>
-            <!-- /.image-box-event -->
+            <!-- /.relation -->
           </div>
           <!-- /.col -->
           <div class="col">
@@ -69,7 +71,9 @@
                   </div>
                   <!-- /.title -->
                   <div class="description">
-                    <p class="text"><%= @meeting.description %></p>
+                    <p class="text">
+                      <%= @meeting.description %>
+                    </p>
                   </div>
                   <!-- /.description -->
                 </div>
@@ -113,7 +117,7 @@
             </div>
             <!-- /.title-box -->
             <div class="members-box">
-              <div class="members-box__col">
+              <div class="members-box__row">
                 <% @meeting.users.all.each do |user| %>
                   <div class="members-box__item">
                     <a href="#" class="member-link-profile">
@@ -121,24 +125,11 @@
                       <span class="member-name"><%= user.name %></span>
                     </a>
                   </div>
+                  <!-- /.members-box__item -->
                 <% end %>
-                <!-- /.members-box__item -->
-              </div>
-              <!-- /.members-box__col -->
-
-
-              <div class="members-box__col">
 
               </div>
-              <!-- /.members-box__col -->
-
-
-              <div class="members-box__col">
-
-              </div>
-              <!-- /.members-box__col -->
-
-
+              <!-- /.members-box__row -->
             </div>
             <!-- /.members-box -->
           </div>
@@ -148,29 +139,31 @@
             </div>
             <!-- /.title-box -->
             <div class="comments-group">
-
-              <% if user_signed_in? %>
+              <% unless user_signed_in? %>
+                <span class="autorization">
+                  <%= link_to 'Авторизуйтесь', new_user_session_path, class: 'autorization-link' %>, чтобы оставлять свои комментарии
+                </span>
+              <% else %>
                 <%= form_tag create_user_meeting_comment_path, method: :post, class: 'form-add-comment' do %>
-
                   <%= text_area_tag :comment, params[:comment],
                                     class: 'field-add-comment', rows: 30, cols: 30, required: true %>
                   <%= hidden_field_tag :comment_meeting_id, @meeting.id %>
                   <%= submit_tag 'Сохранить комментарий', class: 'btn-comment-save' %>
-
                 <% end %>
               <% end %>
+
               <div class="comments-members">
-
                 <% @meeting.comments.each do |comment| %>
-
                   <div class="comments-members__item">
                     <div class="image-author">
-                      <a href="#" class="member-link-profile"><%= image_tag 'portrait.png', :alt => 'Meeting image' %></a>
+                      <a href="#" class="member-link-profile">
+                        <%= image_tag 'portrait.png', :alt => 'Meeting comment user image' %>
+                      </a>
                     </div>
                     <!-- /.image-author -->
                     <div class="comments-text">
                       <a href="#"><span class="name-author-comment"><%= comment.user.name %></span></a>
-                      <span class="date-create-comment">10 явнваря 2017 17:10</span>
+                      <span class="date-create-comment"><%= comment.created_at %></span>
                       <p class="comment-field">
                         <%= comment.text %>
                       </p>
@@ -179,9 +172,7 @@
                     <!-- /.comments-text -->
                   </div>
                   <!-- /.comments__item -->
-
                 <% end %>
-
               </div>
               <!-- /.comments -->
             </div>
@@ -196,3 +187,4 @@
   </div>
   <!-- /.meeting -->
 </div>
+<!-- /.main -->

@@ -11,32 +11,7 @@
           <%= f.label :title_or_description_cont do %>
             <%= f.search_field :title_or_description_cont, :class => 'find-input' %>
           <% end %>
-          <!--
-          <p class="title">Интересы</p>
-          <div class="box-radio">
-            <div class="box-radio__col">
 
-              <label>
-                <input type="checkbox" checked>
-                <span class="radio-btn"></span>
-                Спорт
-              </label>
-
-              <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
-              <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
-              <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
-            </div>
-            <!-- /.box-radio__col -->
-            <!--<div class="box-radio__col">
-              <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
-              <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
-              <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
-              <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
-            </div>
-            <!-- /.box-radio__col -->
-          <!-- </div> -->
-
-          <!-- /.box-radio -->
           <p class="title">Город</p>
           <%= f.label :city_id_eq do %>
             <%= f.search_field :city_title_eq, :class => 'find-input', :list => 'city_datalist', :autocomplete => false %>
@@ -55,6 +30,9 @@
     <div class="col col_right">
       <div class="title-box">
         <span class="title">События</span>
+        <span class="create-event">
+          <%= link_to 'Создать', new_user_meeting_path, class: 'create-event-link' %>
+        </span>
         <a href="#" class="th-link">
           <%= image_tag 'Shape.png', alt: 'List' %>
         </a>
@@ -65,7 +43,9 @@
       <!-- /.title-box -->
       <div class="events">
 
+
         <% @meets.each do |meet| %>
+
           <div class="events__item">
             <%= link_to user_meeting_path(meet) do %>
               <% if meet.image.file %>
@@ -75,23 +55,26 @@
               <% end %>
             <% end %>
             <div class="events__item__text">
-            <h2 class="event-title"><%= meet.title %></h2>
-            <span class="event-description"><%= meet.description %></span>
-            <time datetime="21 мая 2018 года 10:00" class="event-date"><%= meet.date_time_start %></time>
-            <span class="event-place"><%= meet.city.title if meet.city %>, <%= meet.address %></span>
-          </div>
+              <h2 class="event-title"><%= meet.title %></h2>
+              <span class="event-description"><%= meet.description %></span>
+              <time datetime="<%= meet.date_time_start %>" class="event-date"><%= meet.date_time_start %></time>
+              <span class="event-place"><%= meet.city.title if meet.city %>, <%= meet.address %></span>
+            </div>
             <a href="#" class="events__item__img-account">
               <%= image_tag 'portrait.png', alt: 'event author portrait', class: 'portrait' %>
               <span class="name"><%= meet.user.name %></span>
             </a>
           </div>
           <!-- /.events__item -->
+
         <% end %>
+
       </div>
       <!-- /.events -->
     </div>
     <!-- /.content-inner__col_right -->
   </div>
+
   <!-- /.content-inner container -->
 </div>
 <!-- /.main -->
