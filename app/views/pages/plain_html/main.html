@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/bundle/normalize.css">
+    <link rel="stylesheet" href="../styles/bundle/index.css">
+    <link rel="stylesheet" href="../styles/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100i,300,300i,400,500" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <div class="header-inner container">
+            <div class="header-inner__logo">
+                <a href="index.html">
+                    <img src="../img/logo.svg" alt="logo" class="logo-img">
+                </a>
+            </div>
+            <!-- /.header-inner__logo -->
+            <div class="header-inner__pair">
+                <label class="search"><input type="search" placeholder="Поиск...">
+                    <i class="fa fa-search search-icon" aria-hidden="true"></i>
+                </label>
+                <a href="#" class="account">
+                    <img src="../img/portrait.png" alt="image account" class="image-account">
+                    <span class="login-text">Иван Иванов</span>
+                </a>
+
+            </div>
+            <!-- /.header-inner__pair -->
+        </div>
+        <!-- /.header-inner container -->
+    </header>
+    <!-- /.header -->
+    <div class="main">
+        <div class="content-inner container">
+            <div class="col col_left">
+                <div class="title-box">
+                    <span class="title">Поиск событий</span>
+                </div>
+                <!-- /.title-box -->
+                <div class="find-events-box">
+                    <p class="title">Ключевые слова</p>
+                    <label>
+                        <input type="text" class="find-input" placeholder="Футбол">
+                    </label>
+                    <p class="title">Интересы</p>
+                    <div class="box-radio">
+                        <div class="box-radio__col">
+                            <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
+                            <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
+                            <label><input type="checkbox" checked><span class="radio-btn"></span>Спорт</label>
+                            <label><input type="checkbox" checked><span class="radio-btn"></span>автоэлектростеклоподъемники</label></div>
+                        <!-- /.box-radio__col -->
+                        <div class="box-radio__col">
+                            <label><input type="checkbox"><span class="radio-btn"></span>автоэлектростеклоподъемники</label>
+                            <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
+                            <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
+                            <label><input type="checkbox"><span class="radio-btn"></span>Спорт</label>
+                        </div>
+                        <!-- /.box-radio__col -->
+                    </div>
+                    <!-- /.box-radio -->
+                    <p class="title">Город</p>
+                    <label>
+                        <input class="find-input" placeholder="Москва" type="text">
+                    </label>
+                    <button class="find-btn">Поиск</button>
+                </div>
+                <!-- /.find-events-box -->
+            </div>
+            <!-- /.content-inner__col_left -->
+            <div class="col col_right">
+                <div class="title-box">
+                    <span class="title">События</span>
+                    <span class="create-event"><a href="#" class="create-event-link">Создать</a></span>
+                    <a href="#" class="th-link">
+                        <img src="../img/Shape.png" alt="">
+                    </a>
+                    <a href="#" class="map-link">
+                        <img src="../img/map.png" alt="">
+                    </a>
+                </div>
+                <!-- /.title-box -->
+                <div class="events">
+                    <div class="events__item">
+                        <div style="background-image: url(../img/image-event.png); background-size: cover" class="events__item__img"></div>
+                        <div class="events__item__text">
+                            <h2 class="event-title">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, voluptatibus!</h2>
+                            <span class="event-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam corporis debitis harum natus voluptas, voluptate.</span>
+                            <time datetime="21 мая 2018 года 10:00" class="event-date">21 мая 2018 года 10:00</time>
+                            <span class="event-place">Липецк, село Коренёвщино</span>
+                        </div>
+                        <a href="#" class="events__item__img-account">
+                            <img src="../img/portrait.png" alt="" class="portrait">
+                            <span class="name">Loremipsum dolorsitamet.</span>
+                        </a>
+                    </div>
+                    <!-- /.events__item -->
+                    <div class="events__item">
+                        <div style="background-image: url(../img/image-event.png); background-size: cover" class="events__item__img"></div>
+                        <div class="events__item__text">
+                            <h2 class="event-title">Встреча друзей на пикнике</h2>
+                            <span class="event-description">Отдых, Общение</span>
+                            <time datetime="21 мая 2018 года 10:00" class="event-date">21 мая 2018 года 10:00</time>
+                            <span class="event-place">Липецк, село Коренёвщино</span>
+                        </div>
+                        <a href="#" class="events__item__img-account">
+                            <img src="../img/portrait.png" alt="" class="portrait">
+                            <span class="name">Иванов Иван</span>
+                        </a>
+                    </div>
+                    <!-- /.events__item -->
+                    <div class="events__item">
+                        <div style="background-image: url(../img/image-event.png); background-size: cover" class="events__item__img"></div>
+                        <div class="events__item__text">
+                            <h2 class="event-title">Встреча друзей на пикнике</h2>
+                            <span class="event-description">Отдых, Общение</span>
+                            <time datetime="21 мая 2018 года 10:00" class="event-date">21 мая 2018 года 10:00</time>
+                            <span class="event-place">Липецк, село Коренёвщино</span>
+                        </div>
+                        <a href="#" class="events__item__img-account">
+                            <img src="../img/portrait.png" alt="" class="portrait">
+                            <span class="name">Иванов Иван</span>
+                        </a>
+                    </div>
+                    <!-- /.events__item -->
+                    <div class="events__item">
+                        <div style="background-image: url(../img/image-event.png); background-size: cover" class="events__item__img"></div>
+                        <div class="events__item__text">
+                            <h2 class="event-title">Встреча друзей на пикнике</h2>
+                            <span class="event-description">Отдых, Общение</span>
+                            <time datetime="21 мая 2018 года 10:00" class="event-date">21 мая 2018 года 10:00</time>
+                            <span class="event-place">Липецк, село Коренёвщино</span>
+                        </div>
+                        <a href="#" class="events__item__img-account">
+                            <img src="../img/portrait.png" alt="" class="portrait">
+                            <span class="name">Иванов Иван</span>
+                        </a>
+                    </div>
+                    <!-- /.events__item -->
+                </div>
+                <!-- /.events -->
+            </div>
+            <!-- /.content-inner__col_right -->
+        </div>
+
+        <!-- /.content-inner container -->
+    </div>
+    <!-- /.main -->
+    <footer class="footer">
+        <div class="footer-inner container">
+            <span class="footer-copy">Meets.fun, 2017</span>
+        </div>
+        <!-- Footer text -->
+    </footer>
+    <!-- /.footer -->
+</div>
+<!-- /.wrapper -->
+</body>
+</html>

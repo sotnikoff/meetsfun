@@ -8,10 +8,8 @@
     justify-content: space-between
     box-sizing: border-box
     padding: 0 35px 33px
-    flex-wrap: wrap
     .col
       &_left
-        flex: 0 1 auto
         max-width: 450px
         background-color: $white
         box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.09)
@@ -23,10 +21,10 @@
             display: inline-block
             margin-top: 21px
             padding: 10px 64px 9px 65px
-            background-color: #fd7145
+            background-color: rgba(255,255,255, .82)
             font-family: Roboto,sans-serif
             font-size: 1rem
-            color: rgba(255,255,255, .82)
+            color: #fd7145
             transition: all .3s linear
             outline: none
             border: 1px solid $accent-color
@@ -36,9 +34,9 @@
               background-color: lighten(#fd7145, 3%)
               transition: all .3s linear
             &:active
-              border: 1px solid #fd7145
-              background-color: rgba(255,255,255, .82)
-              color: #fd7145
+              border: 1px solid lighten(#fd7145, 10%)
+              background-color: lighten(#fd7145, 10%)
+              color: rgba(255,255,255, .82)
           .title
             font-family: Roboto,sans-serif
             font-size: 1.25rem
@@ -110,9 +108,20 @@
         background-color: $grey-four
         box-shadow: 0 1px 1px 0 rgba(0,0,0, .19)
         box-sizing: border-box
+        .create-event
+          margin-left: auto
+          padding: 0 10px 0 20px
+          box-sizing: border-box
+          &-link
+            font-family: Roboto,sans-serif
+            font-size: 1.25rem
+            font-weight: 700
+            font-style: italic
+            color: $accent-color
+            &:active
+              color: lighten($accent-color,10%)
         .th-link
           display: block
-          margin-left: auto
           border-right: 1px solid #8d8d8d
           padding: 0 14px
         .map-link

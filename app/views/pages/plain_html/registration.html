@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/bundle/normalize.css">
+    <link rel="stylesheet" href="../styles/bundle/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100i,300,300i,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+<div class="wrapper">
+    <header class="header">
+        <div class="header-inner container">
+            <div class="header-inner__logo">
+                <a href="index.html">
+                    <img src="../img/logo.svg" alt="logo" class="logo-img">
+                </a>
+            </div>
+            <!-- /.header-inner__logo -->
+            <div class="header-inner__pair">
+                <a href="registration.html" class="reg-link">Регистрация</a>
+                <a href="logon.html" class="login-link">Вход</a>
+            </div>
+            <!-- /.header-inner__four -->
+        </div>
+        <!-- /.header-inner container -->
+    </header>
+    <div class="main">
+        <main class="container reg-box">
+            <div class="reg-form">
+                <div class="reg-title-box"><span>Регистрация</span></div>
+                <form>
+                    <label>Имя<br><input type="text" placeholder="Иванов Иван"></label>
+                    <label>Электронная почта<br><input type="email" name="email"
+                                                       pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required
+                                                       title="example@server.ru"></label>
+                    <label>Пароль<br><input type="password" name="password" placeholder="******"
+                                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                            title="Должно содержать хотя бы одну цифру, заглавную и строчную буквы, и минимум 8 символов"
+                                            required></label>
+                    <label>Город<br><input type="text"></label>
+                    <button type="submit" class="registration-btn">Регистрация</button>
+                </form>
+            </div>
+        </main>
+    </div>
+    <!-- /.main -->
+    <footer class="footer container">
+        <div class="footer-inner">
+            <span class="footer-copy">Meets.fun, 2017</span>
+        </div>
+        <!-- Footer text -->
+    </footer>
+</div>
+<!-- /.wrapper -->
+</body>
+</html>
