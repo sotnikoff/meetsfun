@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20171222101857) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cities", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
@@ -20,8 +23,8 @@ ActiveRecord::Schema.define(version: 20171222101857) do
 
   create_table "comments", force: :cascade do |t|
     t.text "text"
-    t.integer "user_id"
-    t.integer "meeting_id"
+    t.bigint "user_id"
+    t.bigint "meeting_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["meeting_id"], name: "index_comments_on_meeting_id"
@@ -39,9 +42,9 @@ ActiveRecord::Schema.define(version: 20171222101857) do
   create_table "meetings", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.integer "city_id"
-    t.integer "user_id"
-    t.integer "interest_id"
+    t.bigint "city_id"
+    t.bigint "user_id"
+    t.bigint "interest_id"
     t.datetime "date_time_start"
     t.datetime "date_time_finish"
     t.string "address"
@@ -54,8 +57,8 @@ ActiveRecord::Schema.define(version: 20171222101857) do
   end
 
   create_table "meetings_users", id: false, force: :cascade do |t|
-    t.integer "meeting_id"
-    t.integer "user_id"
+    t.bigint "meeting_id"
+    t.bigint "user_id"
     t.index ["meeting_id"], name: "index_meetings_users_on_meeting_id"
     t.index ["user_id"], name: "index_meetings_users_on_user_id"
   end
@@ -73,7 +76,7 @@ ActiveRecord::Schema.define(version: 20171222101857) do
     t.string "last_sign_in_ip"
     t.string "name"
     t.text "description"
-    t.integer "city_id"
+    t.bigint "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
@@ -83,4 +86,6 @@ ActiveRecord::Schema.define(version: 20171222101857) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "meetings"
+  add_foreign_key "comments", "users"
 end
