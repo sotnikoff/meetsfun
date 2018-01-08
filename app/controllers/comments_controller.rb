@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+
+  before_action :check_user_is_admin
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /comments
@@ -62,13 +64,24 @@ class CommentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def comment_params
-      params.require(:comment).permit(:text, :user_id, :meeting_id)
+  # Use callbacks to share common setup or constraints between actions.
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def comment_params
+    params.require(:comment).permit(:text, :user_id, :meeting_id)
+  end
+
+  def check_user_is_admin
+    if current_user
+      unless current_user.admin
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
     end
+  end
 end

@@ -1,4 +1,5 @@
 class MeetingsController < ApplicationController
+  before_action :check_user_is_admin, only: [:show,:edit,:update,:destroy,:new,:index,:create]
   before_action :set_meeting, only: [:show, :user_show, :edit, :user_edit,
                                      :user_update, :update, :destroy,
                                      :user_destroy, :user_update_participate,
@@ -152,17 +153,28 @@ class MeetingsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_meeting
-      @meeting = Meeting.find(params[:id])
-    end
 
-    def set_meetings
-      @meetings = Meeting.all
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_meeting
+    @meeting = Meeting.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def meeting_params
-      params.require(:meeting).permit(:title, :description, :city_id, :user_id, :interest_id, :date_time_start, :date_time_finish, :address, :image)
+  def set_meetings
+    @meetings = Meeting.all
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def meeting_params
+    params.require(:meeting).permit(:title, :description, :city_id, :user_id, :interest_id, :date_time_start, :date_time_finish, :address, :image)
+  end
+
+  def check_user_is_admin
+    if current_user
+      unless current_user.admin
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
     end
+  end
 end

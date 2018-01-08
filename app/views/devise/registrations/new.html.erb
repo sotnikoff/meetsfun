@@ -16,15 +16,15 @@
 
         <%= f.label :password do %>Пароль<br />
           <%= f.password_field :password, autocomplete: "off", :required => true,
-                               :pattern => '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}',
-                               :title => 'Должно содержать хотя бы одну цифру, заглавную и строчную буквы, и минимум 8 символов'
+                               :pattern => '[a-zA-Z1-9]{6,40}',
+                               :title => 'Должно содержать английские буквы и цифры, минимум 8 символов'
           %>
         <% end %>
 
         <%= f.label :password_confirmation do %>Повторите пароль<br />
           <%= f.password_field :password_confirmation, autocomplete: "off", :required => true,
-                               :pattern => '(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}',
-                               :title => 'Должно содержать хотя бы одну цифру, заглавную и строчную буквы, и минимум 8 символов'
+                               :pattern => '[a-zA-Z1-9]{6,40}',
+                               :title => 'Должно содержать английские буквы и цифры, минимум 8 символов'
           %>
         <% end %>
         <%= f.label :city_id do %>Город<br />
