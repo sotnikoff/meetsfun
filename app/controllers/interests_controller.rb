@@ -1,4 +1,6 @@
 class InterestsController < ApplicationController
+
+  before_action :check_user_is_admin
   before_action :set_interest, only: [:show, :edit, :update, :destroy]
 
   # GET /interests
@@ -62,13 +64,24 @@ class InterestsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_interest
-      @interest = Interest.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def interest_params
-      params.require(:interest).permit(:title, :description, :image)
+  # Use callbacks to share common setup or constraints between actions.
+  def set_interest
+    @interest = Interest.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def interest_params
+    params.require(:interest).permit(:title, :description, :image)
+  end
+
+  def check_user_is_admin
+    if current_user
+      unless current_user.admin
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
     end
+  end
 end

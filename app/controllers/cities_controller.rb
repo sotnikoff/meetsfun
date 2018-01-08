@@ -1,4 +1,6 @@
 class CitiesController < ApplicationController
+
+  before_action :check_user_is_admin
   before_action :set_city, only: [:show, :edit, :update, :destroy]
 
   # GET /cities
@@ -71,13 +73,24 @@ class CitiesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_city
-      @city = City.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def city_params
-      params.require(:city).permit(:title)
+  # Use callbacks to share common setup or constraints between actions.
+  def set_city
+    @city = City.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def city_params
+    params.require(:city).permit(:title)
+  end
+
+  def check_user_is_admin
+    if current_user
+      unless current_user.admin
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
     end
+  end
 end
