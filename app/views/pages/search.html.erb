@@ -1,0 +1,19 @@
+<h1>Поиск</h1>
+<%= search_form_for @search, url: query_search_path, method: :post do |f| %>
+
+  <%= f.label :title_cont %>
+  <%= f.search_field :title_cont %>
+
+  <%= f.submit %>
+
+<% end %>
+
+<% if @meetings %>
+  <ul>
+    <% @meetings.each do |meet| %>
+      <li>
+        <%= meet.title %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

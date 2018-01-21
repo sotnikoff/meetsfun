@@ -1,0 +1,61 @@
+<%= form_with(model: meeting, local: true, html: {multipart: true}) do |form| %>
+  <% if meeting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
+
+      <ul>
+      <% meeting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :meeting_title, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :meeting_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :city_id %>
+    <%= form.collection_select :city_id , City.order(:title),:id,:title, include_blank: false %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :meeting_user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :interest_id %>
+    <%= form.collection_select :interest_id , Interest.order(:title),:id,:title, include_blank: false %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_time_start %>
+    <%= form.datetime_select :date_time_start, id: :meeting_date_time_start %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_time_finish %>
+    <%= form.datetime_select :date_time_finish, id: :meeting_date_time_finish %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address, id: :meeting_address %>
+  </div>
+
+  <div class="field">
+    <%= form.file_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

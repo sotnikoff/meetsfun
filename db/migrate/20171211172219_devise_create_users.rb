@@ -31,7 +31,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       # t.datetime :locked_at
 
 
+      ## Meets.fun specific
+      t.string :name
+      t.text :description
+      t.references :city, foreign_key: false
       t.timestamps null: false
+      t.string :image
     end
 
     add_index :users, :email,                unique: true

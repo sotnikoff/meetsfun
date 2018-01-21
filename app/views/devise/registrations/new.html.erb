@@ -1,29 +1,44 @@
-<h2>Sign up</h2>
+<div class="main">
+  <main class="container reg-box">
+    <div class="reg-form">
+      <div class="reg-title-box"><span>Регистрация</span></div>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+        <%= f.label :name do %>Имя<br />
+          <%= f.text_field :name, :required => true, autocomplete: "off", placeholder: 'Ваше имя' %>
+        <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+        <%= f.label :email do%>Электронная почта<br />
+          <%= f.email_field :email, :required => true,
+                            :pattern => '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$',
+                            :placeholder => 'your-mail@example.com' %>
+        <% end %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+        <%= f.label :password do %>Пароль<br />
+          <%= f.password_field :password, autocomplete: "off", :required => true,
+                               :pattern => '[a-zA-Z1-9]{6,40}',
+                               :title => 'Должно содержать английские буквы и цифры, минимум 8 символов'
+          %>
+        <% end %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+        <%= f.label :password_confirmation do %>Повторите пароль<br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", :required => true,
+                               :pattern => '[a-zA-Z1-9]{6,40}',
+                               :title => 'Должно содержать английские буквы и цифры, минимум 8 символов'
+          %>
+        <% end %>
+        <%= f.label :city_id do %>Город<br />
+          <%= f.text_field :city_id, :required => true, autocomplete: "off", :list => 'city_datalist' %>
+          <datalist id="city_datalist">
+            <% City.all.each do |city| %>
+              <option value="<%= city.id %>"><%= city.title %></option>
+            <% end %>
+          </datalist>
+        <% end %>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+        <%= f.submit 'Регистрация', :class => 'registration-btn' %>
+      <% end %>
+    </div>
+  </main>
+</div>
+<!-- /.main -->

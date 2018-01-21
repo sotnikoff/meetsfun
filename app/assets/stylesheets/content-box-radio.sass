@@ -1,0 +1,55 @@
+//imported files
+@import "colors"
+//Begin content-box-radio
+
+.box-radio
+  display: flex
+  justify-content: space-between
+  width: 100%
+  &__col
+    display: flex
+    flex-direction: column
+    margin-left: 23px
+    width: 50%
+    label
+      opacity: 0.61
+      font-family: Roboto,sans-serif
+      font-size: 1rem
+      font-weight: 300
+      color: $black
+      cursor: pointer
+      position: relative
+      margin-bottom: 18.7px
+      display: flex
+      align-items: center
+      word-break: break-all
+      .radio-btn
+        display: block
+        position: absolute
+        top: 0
+        left: -25px
+        width: 15px
+        height: 15px
+        border-radius: 4px
+        background-color: $white
+        border: solid 1px rgb(207, 207, 207)
+        transition: All .3s linear
+      &:nth-last-child(1)
+        margin-bottom: 0
+      input
+        margin-right: 8px
+        display: none
+        &:checked + .radio-btn:after
+          content: ''
+          position: absolute
+          transform: translate(-50%, -50%)
+          top: 50%
+          left: 50%
+          width: 7px
+          height: 7px
+          border-radius: 2px
+          background-color: darken(#fd7145,10%)
+
+    &:nth-last-child(1)
+      margin-left: 40px
+//end content-box-radio

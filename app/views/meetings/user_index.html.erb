@@ -1,0 +1,8 @@
+<h1>Встречи</h1>
+<%= link_to 'Создать встречу', new_user_meeting_path %>
+<ul>
+  <% @meetings.each do |meeting| %>
+    <li><%= link_to meeting.title, user_meeting_path(meeting) %></li>
+  <% end %>
+</ul>
+<%= link_to 'Создать встречу', new_user_meeting_path %>

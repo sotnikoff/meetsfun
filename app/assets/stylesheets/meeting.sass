@@ -1,0 +1,250 @@
+//imported files
+@import "colors"
+//Begin meeting
+.meeting
+  margin: 17px 20px 0
+  box-sizing: border-box
+  &-box
+    background-color: $white
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.09)
+  .title-box
+    background-color: $grey-four
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1)
+    .title
+      display: block
+      opacity: 0.84
+      font-family: Roboto,sans-serif
+      font-size: 1.25rem
+      font-weight: 100
+      font-style: italic
+      color: $black
+      padding: 26px 47px 27px
+      box-sizing: border-box
+  &-event
+    padding: 41px 58px 41px 54px
+    box-sizing: border-box
+    .title-box-event
+      .title-event
+        display: block
+        opacity: 0.65
+        font-family: Roboto,sans-serif
+        font-size: 2.25rem
+        font-weight: 300
+        color: $black
+        padding: 0
+        margin: 0 0 5px
+      .description-event
+        display: block
+        opacity: 0.26
+        font-family: Roboto,sans-serif
+        font-size: 0.875rem
+        font-weight: 300
+        color: $black
+        padding: 0
+        margin: 0 0 23px
+    &__row
+      display: flex
+      justify-content: space-between
+      .col
+        display: flex
+        flex-direction: column
+        &:first-child
+          width: 40%
+          margin-right: 24.5px
+        &:nth-child(2)
+          display: flex
+          width: 60%
+          flex-direction: column
+          margin-left: 24.5px
+          min-height: 100%
+        .relation
+          position: relative
+          max-width: 300px
+          max-height: 300px
+          &__ratio
+            padding-top: 100%
+            height: 0
+          &__content
+            position: absolute
+            width: 100%
+            height: 100%
+            top: 0
+            left: 0
+          .image-box-event
+            background-size: cover
+            background-repeat: no-repeat
+            background-position: center center
+            transition: all .5s linear
+            &:hover::before
+              content: ''
+              position: absolute
+              top: 0
+              bottom: 0
+              left: 0
+              right: 0
+              background-color: #000000
+              opacity: .77
+              transition: all .3s linear
+            .sign-up-event
+              position: absolute
+              top: 50%
+              left: 50%
+              transform: translate(-50%, -50%)
+              font-family: Roboto,sans-serif
+              font-size: 1rem
+              color: rgb(253, 113, 69)
+              padding: 10px 15px 9px 16px
+              border: solid 1px rgb(253, 113, 69)
+              border-radius: 19px
+              box-sizing: border-box
+              white-space: nowrap
+              transition: all .3s linear
+              &:hover
+                background-color: rgb(253, 113, 69)
+                color: white
+              &:active
+                background-color: lighten(rgb(253, 113, 69), 10%)
+                color: white
+                margin-top: 3px
+            .no-sign-up-event
+              color: rgb(255, 0, 0)
+              border: solid 1px rgb(255, 0, 0)
+              &:hover
+                background-color: rgb(255, 0, 0)
+                color: white
+              &:active
+                background-color: lighten(rgb(255, 0, 0), 10%)
+                color: white
+                margin-top: 3px
+      .event-description
+        .date-box
+          display: flex
+          justify-content: space-between
+          padding: 17px 77px 16px
+          box-sizing: border-box
+          border-bottom: solid 1px rgba(151, 151, 151, .18)
+          margin-bottom: 17px
+          .date-start
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            margin-right: 5px
+            &__date
+              opacity: 0.8
+              font-family: Roboto,sans-serif
+              font-size: 1rem
+              font-weight: 500
+              color: $black
+              margin-bottom: 2px
+              text-align: center
+            &__time
+              opacity: 0.33
+              font-family: Roboto,sans-serif
+              font-size: 0.75rem
+              font-weight: 300
+              color: $black
+          hr
+            width: 28px
+            height: 1px
+            background-color: black
+            opacity: 0.57
+          .date-end
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            margin-left: 5px
+            &__date
+              opacity: 0.8
+              font-family: Roboto,sans-serif
+              font-size: 1rem
+              font-weight: 500
+              color: $black
+              margin-bottom: 2px
+              text-align: center
+            &__time
+              opacity: 0.33
+              font-family: Roboto,sans-serif
+              font-size: 0.75rem
+              font-weight: 300
+              color: $black
+        .box
+          display: flex
+          justify-content: space-between
+          .text-description-event
+            margin-right: 23px
+            display: flex
+            flex-direction: column
+            min-height: 100%
+            height: 100%
+            padding: 0 10px
+            box-sizing: border-box
+            .title
+              opacity: 0.38
+              font-family: Roboto,sans-serif
+              font-size: 1.125rem
+              font-weight: 300
+              color: rgba(0,0,0, .38)
+              align-self: flex-start
+              justify-content: flex-start
+              margin-bottom: 100px
+            .description
+              opacity: 0.78
+              font-family: Roboto,sans-serif
+              font-size: 0.75rem
+              font-weight: 300
+              color: rgba(0,0,0, .78)
+              align-self: flex-end
+              justify-content: flex-end
+              text-align: justify
+              margin: 0 20px
+              .text
+                padding: 0
+                margin: 0
+          .organizer-box
+            display: flex
+            flex-direction: column
+            align-items: center
+            margin-top: 32px
+            margin-left: 23px
+            margin-right: 28px
+            .organizer-image
+              width: 80px
+              height: 80px
+            .post
+              opacity: 0.36
+              font-family: Roboto,sans-serif
+              font-size: 0.625rem
+              font-weight: 300
+              color: $black
+              margin-top: 10px
+            .organizer-name
+              opacity: 0.73
+              font-family: Roboto,sans-serif
+              font-size: 0.875rem
+              font-weight: 300
+              color: $black
+              white-space: nowrap
+    .event-place
+      margin-top: 11px
+      .box
+        display: flex
+        flex-direction: column
+        text-align: right
+        .text
+          font-family: Roboto,sans-serif
+          font-size: 1.125rem
+          font-weight: 300
+          color: rgba(0,0,0, .38)
+        .meeting-place
+          font-family: Roboto,sans-serif
+          font-size: 0.75rem
+          color: rgba(0,0,0, .78)
+      .map-image
+        margin-top: 13px
+        .map
+          max-width: 100%
+          min-height: 100%
+
+//End meeting

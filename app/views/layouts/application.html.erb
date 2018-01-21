@@ -1,14 +1,70 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Meetsfun</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Meets.fun</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application',
+                            'https://fonts.googleapis.com/css?family=Roboto:100i,300,300i,400,500',
+                            media: 'all', 'data-turbolinks-track' => 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+  <div class="wrapper">
+    <header class="header">
+      <div class="header-inner container">
+        <div class="header-inner__logo">
+          <%= link_to root_path do %>
+            <%= image_tag 'logo.svg', alt: 'logo', class: 'logo-img' %>
+          <% end %>
+        </div>
+        <!-- /.header-inner__logo -->
+        <div class="header-inner__pair">
+
+
+          <% unless user_signed_in? %>
+
+            <%= link_to 'Регистрация', new_user_registration_path, class: 'reg-link' %>
+            <%= link_to 'Вход', new_user_session_path, class: 'login-link' %>
+
+          <% else %>
+
+            <label class="search"><input type="search" placeholder="Поиск...">
+              <i class="fa fa-search search-icon" aria-hidden="true"></i>
+            </label>
+            <%= link_to profile_path, class: 'account' do %>
+              <%= image_tag 'portrait.png', alt: 'image account', class: 'image-account' %>
+              <span class="login-text"><%= current_user.name %></span>
+            <% end %>
+
+          <% end %>
+
+
+        </div>
+        <!-- /.header-inner__four -->
+      </div>
+      <!-- /.header-inner container -->
+    </header>
+
+
+
     <%= yield %>
+
+
+
+    <footer class="footer container">
+      <div class="footer-inner container">
+        <span class="footer-copy">Meets.fun, 2017</span>
+      </div>
+      <!-- Footer text -->
+    </footer>
+  </div>
+  <!-- /.wrapper -->
+
   </body>
 </html>

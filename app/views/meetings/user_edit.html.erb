@@ -1,0 +1,57 @@
+<div class="main">
+  <main class="meeting-create-box container">
+    <div class="create-form">
+                <span class="title">
+                    Создание встречи
+                </span>
+      <!-- /.title -->
+      <%= form_for @meeting, url: update_user_meeting_path, method: :patch,
+                   html: {multipart: true, class: 'meeting-create-form'} do |form| %>
+
+        <%= form.label :title, class: 'meeting_name' do %>
+          <span class="name">Название:</span>
+          <%= form.text_field :title, id: :meeting_title, :required => true %>
+        <% end %>
+
+        <%= form.label :description do%><span class="description">Описание:</span>
+          <%= form.text_area :description, id: :meeting_description,
+                             class: 'meeting-description-field',
+                             cols: 30, rows: 10 %>
+        <% end %>
+
+        <%= form.label :city_id do %><span>Город:</span>
+          <%= form.collection_select :city_id , City.order(:title),:id,:title, include_blank: false %>
+        <% end %>
+
+        <%= form.label :interest_id do %><span>Интересы:</span>
+          <%= form.collection_select :interest_id , Interest.order(:title),:id,:title, include_blank: false %>
+        <% end %>
+
+        <%= form.label :date_time_start, class: 'start-meeting' do %><span>Начало встречи:</span>
+          <%= form.datetime_select :date_time_start, id: :meeting_date_time_start %>
+        <% end %>
+
+        <%= form.label :date_time_finish, class: 'end-meeting' do %><span>Конец встречи:</span>
+          <%= form.datetime_select :date_time_finish, id: :meeting_date_time_finish %>
+        <% end %>
+
+        <%= form.label :address do %>
+          <span>Адрес:</span>
+          <%= form.text_field :address, id: :meeting_address %>
+        <% end %>
+
+        <div class="file-upload">
+
+          <%= form.label :image do %>
+            <%= form.file_field :image %>
+            <span>Выберите файл</span>
+          <% end %>
+
+        </div>
+
+        <%= form.submit 'Обновление встречи', class: 'btn-create-meeting'%>
+
+      <% end %>
+    </div>
+  </main>
+</div>

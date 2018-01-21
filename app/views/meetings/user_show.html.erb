@@ -1,0 +1,190 @@
+<div class="main">
+  <div class="meeting container-small">
+    <div class="meeting-box">
+      <div class="title-box">
+                <span class="title">
+                    Встреча - <%= @meeting.title %>
+                </span>
+      </div>
+      <!-- /.title-box -->
+      <div class="meeting-event">
+        <div class="title-box-event">
+          <h2 class="title-event"><%= @meeting.title %></h2>
+          <h3 class="description-event"><%= @meeting.interest.title if @meeting.interest %></h3>
+        </div>
+        <!-- /.title-box-event -->
+        <div class="meeting-event__row">
+          <div class="col">
+            <div class="relation">
+              <div class="relation__ratio"></div>
+              <!-- /.relation__ratio -->
+              <% image = if @meeting.image.file %>
+                <% @meeting.image %>
+              <% else %>
+                <% @meeting.interest.image %>
+              <% end %>
+              <div class="image-box-event relation__content" style="background-image: url(<%= image %>);">
+                <% if user_signed_in? %>
+                  <% if @participate.count == 0 %>
+                    <%= link_to update_user_meeting_participate_path, :method => :put, :class => 'sign-up-event' do %>
+                      <i class="fa fa-plus" aria-hidden="true"></i>  Буду участвовать
+                    <% end %>
+                  <% else %>
+                    <%= link_to delete_user_meeting_participate_path, :method => :delete, :class => 'sign-up-event no-sign-up-event' do %>
+                      <i class="fa fa-minus" aria-hidden="true"></i>  Отменить участие
+                    <% end %>
+                  <% end %>
+                <% else %>
+                  <%= link_to new_user_session_path, :class => 'sign-up-event' do %>
+                    Авторизуйтесь
+                  <% end %>
+                <% end %>
+              </div>
+              <!-- /.image-box-event -->
+            </div>
+            <!-- /.relation -->
+          </div>
+          <!-- /.col -->
+          <div class="col">
+            <div class="event-description">
+              <div class="date-box">
+                <div class="date-start">
+                  <span class="date-start__date">31 декабря 2017</span>
+                  <!-- /.date-start-text -->
+                  <span class="date-start__time">14:00</span>
+                  <!-- /.time-start-text -->
+                </div>
+                <hr>
+                <div class="date-end">
+                  <span class="date-end__date">31 декабря 2017</span>
+                  <!-- /.date-end-text -->
+                  <span class="date-end__time">18:00</span>
+                  <!-- /.time-end-text -->
+                </div>
+              </div>
+              <!-- /.date-box -->
+              <div class="box">
+                <div class="text-description-event">
+
+                  <div class="title">
+                    <span>Описание встречи</span>
+                  </div>
+                  <!-- /.title -->
+                  <div class="description">
+                    <p class="text">
+                      <%= @meeting.description %>
+                    </p>
+                  </div>
+                  <!-- /.description -->
+                </div>
+                <!-- /.text-description -->
+                <div class="organizer-box">
+                  <a href="#">
+                    <%= image_tag 'portrait.png', alt: 'event author portrait', class: 'organizer-image' %>
+                  </a>
+                  <span class="post">Организатор</span>
+                  <span class="organizer-name"><%= @meeting.user.name if @meeting.user %></span>
+                </div>
+                <!-- /.organizer-box -->
+              </div>
+              <!-- /.box -->
+            </div>
+            <!-- /.event-description -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.meeting-box__row -->
+        <div class="event-place">
+          <div class="box">
+                <span class="text">
+                    Место проведения встречи
+                </span>
+            <span class="meeting-place">
+                    <b><%= @meeting.city.title if @meeting.city %></b>, <%= @meeting.address %>
+                </span>
+          </div>
+          <!-- /.title-box -->
+          <div class="map-image">
+            <%= image_tag 'Bitmap.png', alt: 'map', class: 'map' %>
+          </div>
+          <!-- /.map-image -->
+        </div>
+        <!-- /.event-place -->
+        <div class="meeting-wide-box">
+          <div class="col col-left">
+            <div class="title-box">
+              <span class="title">Участники</span>
+            </div>
+            <!-- /.title-box -->
+            <div class="members-box">
+              <div class="members-box__row">
+                <% @meeting.users.all.each do |user| %>
+                  <div class="members-box__item">
+                    <a href="#" class="member-link-profile">
+                      <%= image_tag 'portrait.png', :alt => 'Meeting image', :class => 'member-photo' %>
+                      <span class="member-name"><%= user.name %></span>
+                    </a>
+                  </div>
+                  <!-- /.members-box__item -->
+                <% end %>
+
+              </div>
+              <!-- /.members-box__row -->
+            </div>
+            <!-- /.members-box -->
+          </div>
+          <div class="col col-right">
+            <div class="title-box"><span class="title">Комментарии</span>
+
+            </div>
+            <!-- /.title-box -->
+            <div class="comments-group">
+              <% unless user_signed_in? %>
+                <span class="autorization">
+                  <%= link_to 'Авторизуйтесь', new_user_session_path, class: 'autorization-link' %>, чтобы оставлять свои комментарии
+                </span>
+              <% else %>
+                <%= form_tag create_user_meeting_comment_path, method: :post, class: 'form-add-comment' do %>
+                  <%= text_area_tag :comment, params[:comment],
+                                    class: 'field-add-comment', rows: 30, cols: 30, required: true %>
+                  <%= hidden_field_tag :comment_meeting_id, @meeting.id %>
+                  <%= submit_tag 'Сохранить комментарий', class: 'btn-comment-save' %>
+                <% end %>
+              <% end %>
+
+              <div class="comments-members">
+                <% @meeting.comments.each do |comment| %>
+                  <div class="comments-members__item">
+                    <div class="image-author">
+                      <a href="#" class="member-link-profile">
+                        <%= image_tag 'portrait.png', :alt => 'Meeting comment user image' %>
+                      </a>
+                    </div>
+                    <!-- /.image-author -->
+                    <div class="comments-text">
+                      <a href="#"><span class="name-author-comment"><%= comment.user.name %></span></a>
+                      <span class="date-create-comment"><%= comment.created_at %></span>
+                      <p class="comment-field">
+                        <%= comment.text %>
+                      </p>
+                      <!-- /.comment-text -->
+                    </div>
+                    <!-- /.comments-text -->
+                  </div>
+                  <!-- /.comments__item -->
+                <% end %>
+              </div>
+              <!-- /.comments -->
+            </div>
+            <!-- /.comments-box -->
+          </div>
+        </div>
+        <!-- /.meeting-wide-box -->
+      </div>
+      <!-- /.meeting-box -->
+    </div>
+    <!-- /. -->
+  </div>
+  <!-- /.meeting -->
+</div>
+<!-- /.main -->

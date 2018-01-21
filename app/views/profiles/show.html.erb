@@ -1,0 +1,13 @@
+<h1>Мой профиль</h1>
+<p><%= @user.name %></p>
+<p><%= @user.email %></p>
+<p><%= @user.city.title %></p>
+<p><b>Обо мне</b></p>
+<p><%= @user.description %></p>
+<br>
+<p>Зарегистрирован  <%= @user.created_at %></p>
+<p>Последний вход в систему <%= @user.last_sign_in_at %> с адреса <%= @user.last_sign_in_ip %></p>
+<% if current_user == @user %>
+  <p><%= link_to 'Редактировать профиль', edit_profile_path %></p>
+  <p><%= link_to 'Выход', destroy_user_session_path, :method => :delete %></p>
+<% end %>

@@ -1,0 +1,31 @@
+<%= form_with(model: interest, local: true) do |form| %>
+  <% if interest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(interest.errors.count, "error") %> prohibited this interest from being saved:</h2>
+
+      <ul>
+      <% interest.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :interest_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :interest_description %>
+  </div>
+
+  <div class="field">
+    <%= form.file_field :image, required: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,136 @@
+@import "colors"
+.meeting-create-box
+  display: flex
+  justify-content: center
+  background: $grey
+  min-height: 100%
+  .create-form
+    display: flex
+    flex-direction: column
+    background-color: $white
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.09)
+    flex: 0 1 601px
+    max-width: 100%
+    box-sizing: border-box
+    padding: 0 30px 33px
+    margin: 160px 30px 218px
+    .title
+      font-family: Roboto,sans-serif
+      font-size: 1.25rem
+      font-weight: 100
+      font-style: italic
+      color: rgba(0,0,0, .84)
+      background-color: $grey-four
+      padding: 23px 0 23px 30px
+      margin: 0 -30px
+    .meeting-create-form
+      display: flex
+      flex-direction: column
+      justify-content: center
+      font-family: Roboto,sans-serif
+      font-size: 16px
+      margin-top: 23px
+      .start-meeting
+        select
+          margin-right: 5px
+          margin-left: 5px
+      .end-meeting
+        select
+          margin-right: 5px
+          margin-left: 5px
+      .file-upload
+        display: flex
+        background-color: $white
+        border-radius: 3px
+        margin-top: 20px
+        max-width: 176px
+        align-self: flex-start
+        background: $white
+        color: $accent-color
+        font-family: Roboto,sans-serif
+        outline: none
+        cursor: pointer
+        border: 1px solid $accent-color
+        transition: all .4s linear
+        &:hover
+          background: $accent-color
+          color: $white
+        &:active
+          background: lighten($accent-color, 10%)
+          color: $white
+        & input[type="file"]
+          display: none
+        & label
+          display: flex
+          justify-content: center
+          align-items: center
+          width: 100%
+          height: 100%
+          cursor: pointer
+          margin-bottom: 0
+        & label span
+          height: 100%
+      label
+        display: flex
+        margin-bottom: 10px
+        align-items: center
+        .description
+          align-self: flex-start
+        span
+          display: block
+          min-width: 150px
+          padding: 10px
+          box-sizing: border-box
+
+        select
+          cursor: pointer
+        input,
+        select
+          outline: none
+          border: solid 1px #e2e2e2
+          border-radius: 4px
+          padding: 10px 5px
+          color: rgba(0,0,0, .52)
+          background-color: rgba(242, 242, 242, 0.17)
+        #meeting_title,
+        #meeting_description,
+        #meeting_address
+          width: 100%
+        #meeting_city_id,
+        #meeting_interest_id
+          width: 25%
+
+
+      .meeting-description-field
+        background-color: rgba(242, 242, 242, 0.17)
+        border: solid 1px #e2e2e2
+        border-radius: 4px
+        font-family: Roboto,sans-serif
+        color: rgba(0,0,0, .52)
+        outline: none
+        padding: 10px
+        resize: none
+        box-sizing: border-box
+        margin: 0 -1px
+      .btn-create-meeting
+        margin-top: 20px
+        padding: 10px
+        max-width: 176px
+        align-self: flex-start
+        background: $white
+        color: $accent-color
+        font-family: Roboto,sans-serif
+        outline: none
+        cursor: pointer
+        border: 1px solid $accent-color
+        transition: all .4s linear
+        &:hover
+          border-color: $accent-color
+          color: $white
+          background: $accent-color
+          transition: all .4s linear
+        &:active
+          background: lighten($accent-color, 10%)
+          border: 1px solid lighten($accent-color, 10%)
+          color: $white
+

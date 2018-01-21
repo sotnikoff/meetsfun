@@ -1,0 +1,35 @@
+//imported files
+@import "colors"
+//Begin start-box
+
+.image-map-box
+  display: flex
+  flex-direction: column
+  margin-top: 33px
+  .image-map
+    max-width: 100%
+    min-height: 100%
+  .start-link
+    display: flex
+    align-self: center
+    border: solid 1px $accent-color
+    border-radius: 40px
+    font-family: Roboto, sans-serif
+    font-size: 1.5rem
+    font-weight: 300
+    color: $accent-color
+    padding: 20px 70px
+    margin-top: 34px
+    transition: all .4s linear
+    &:hover
+      border-color: $accent-color
+      color: white
+      background-color: $accent-color
+      transition: all .4s linear
+    &:active
+      border-color: lighten($accent-color, 10%)
+      color: white
+      background-color: lighten($accent-color, 10%)
+
+
+//End start-box

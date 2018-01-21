@@ -1,7 +1,8 @@
-<h1>Hello world</h1>
-<p>This is fucking awesome!</p>
-<ul>
-  <% @cities.each do |city| %>
-    <li><%= city.title %></li>
-  <% end %>
-</ul>
+<div class="main">
+  <div class="image-map-box container">
+    <%= image_tag 'map2.png', alt: 'image map', class: 'image-map' %>
+    <%= link_to 'Начать работу', main_path, class: 'start-link container' %>
+  </div>
+
+</div>
+<!-- /.main -->
